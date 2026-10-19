@@ -1,12 +1,22 @@
-@"
 .env
 .env.*
 !.env.example
+
 .venv/
 __pycache__/
+*.pyc
+
 node_modules/
 dist/
 build/
+
 *.log
 screenshots/private/
-"@ | Set-Content .gitignore
+
+.DS_Store
+.vscode/
+
+.pytest_cache/
+.coverage
+coverage/
+*.egg-info/
