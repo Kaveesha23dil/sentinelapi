@@ -1,0 +1,12 @@
+@"
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+node_modules/
+dist/
+build/
+*.log
+screenshots/private/
+"@ | Set-Content .gitignore
