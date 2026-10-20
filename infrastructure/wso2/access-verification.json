@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-20T15:02:06.129501+00:00",
+  "tls_certificate_verification": true,
+  "gateway_url_verified": false,
+  "checks": [
+    {
+      "check": "publisher_inventory_without_token",
+      "http_status": 401
+    },
+    {
+      "check": "anonymous_devportal_catalog",
+      "http_status": 200,
+      "visible_api_count": 0
+    },
+    {
+      "check": "candidate_gateway_orders_without_token",
+      "http_status": 404,
+      "required_status_after_integration": 401,
+      "passed": false
+    }
+  ],
+  "authenticated_gateway_tests": "not executed: credential and deployment unavailable"
+}

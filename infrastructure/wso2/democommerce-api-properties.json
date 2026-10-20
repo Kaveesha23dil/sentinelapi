@@ -1,0 +1,16 @@
+{
+  "name": "DemoCommerceAPI",
+  "context": "/democommerce",
+  "version": "1.0.0",
+  "type": "HTTP",
+  "gatewayType": "wso2/synapse",
+  "transport": ["https"],
+  "securityScheme": ["oauth2"],
+  "policies": ["Unlimited"],
+  "endpointConfig": {
+    "endpoint_type": "http",
+    "production_endpoints": {
+      "url": "http://democommerce:8000"
+    }
+  }
+}

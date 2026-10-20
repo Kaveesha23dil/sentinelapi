@@ -1,0 +1,29 @@
+﻿{
+    "checked_at_utc":  "2026-10-20T14:58:35.4533882Z",
+    "containers":  [
+                       {
+                           "name":  "sentinelapi-democommerce",
+                           "image":  "sentinelapi/democommerce:local",
+                           "running":  true,
+                           "docker_health":  "healthy",
+                           "network":  "sentinelapi-network"
+                       },
+                       {
+                           "name":  "sentinelapi-wso2",
+                           "image":  "wso2/wso2am:4.5.0",
+                           "running":  true,
+                           "docker_health":  "not configured",
+                           "network":  "sentinelapi-network"
+                       }
+                   ],
+    "host_backend_health":  {
+                                "status":  "healthy",
+                                "service":  "democommerce-api",
+                                "version":  "1.0.0"
+                            },
+    "wso2_to_backend_health":  {
+                                   "status":  "healthy",
+                                   "service":  "democommerce-api",
+                                   "version":  "1.0.0"
+                               }
+}
