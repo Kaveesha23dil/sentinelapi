@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "gateway_status_during_outage": 200,
+  "monitoring_status_during_outage": 503,
+  "collector_checkpoint_unchanged": true,
+  "recovered_event_id": "871a091e-012c-5f02-a573-2f252106ee15",
+  "recovered_database_count": 1,
+  "recovered_monitoring_status": 200,
+  "token_revocation_submitted": true
+}

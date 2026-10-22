@@ -1,0 +1,26 @@
+{
+  "api_id": "f0d23a14-460c-4441-9c76-0f39bfd2efb3",
+  "before": {
+    "apis": [
+      {
+        "context": "/democommerceapi/1.0.0",
+        "logLevel": "OFF",
+        "apiId": "f0d23a14-460c-4441-9c76-0f39bfd2efb3",
+        "resourceMethod": null,
+        "resourcePath": null
+      }
+    ]
+  },
+  "after": {
+    "apis": [
+      {
+        "context": "/democommerceapi/1.0.0",
+        "logLevel": "BASIC",
+        "apiId": "f0d23a14-460c-4441-9c76-0f39bfd2efb3",
+        "resourceMethod": null,
+        "resourcePath": null
+      }
+    ]
+  },
+  "applied": true
+}

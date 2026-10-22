@@ -1,0 +1,62 @@
+{
+  "checked_at_utc": "2026-10-22T10:37:14.639404+00:00",
+  "test_database": "sentinelapi_test_a396142430194eb4bad6c9d6e17ef4aa",
+  "passed": true,
+  "phase": "complete",
+  "pytest_summary": {
+    "tests": "57",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "time": "1.179"
+  },
+  "marker_event_id": "3a1d6cdb-5f4c-4f53-8fb7-0a40a02d7143",
+  "fabricated_test_data": true,
+  "migration_upgrade_twice": true,
+  "migration_downgrade_upgrade": true,
+  "pytest_exit_code": 0,
+  "survived_container_restart": true,
+  "tables": [
+    "alembic_version",
+    "audit_logs",
+    "api_services",
+    "security_alerts",
+    "detection_rules",
+    "traffic_aggregates",
+    "traffic_events",
+    "alert_evidence"
+  ],
+  "indexes": {
+    "alembic_version": [],
+    "audit_logs": [
+      "ix_audit_logs_entity",
+      "ix_audit_logs_timestamp"
+    ],
+    "api_services": [
+      "uq_api_services_gateway_api_id",
+      "uq_api_services_name"
+    ],
+    "security_alerts": [
+      "ix_security_alerts_api_detected",
+      "ix_security_alerts_rule_id",
+      "ix_security_alerts_status_severity"
+    ],
+    "detection_rules": [
+      "uq_detection_rules_name"
+    ],
+    "traffic_aggregates": [
+      "uq_traffic_aggregates_api_service_id"
+    ],
+    "traffic_events": [
+      "ix_traffic_events_api_timestamp",
+      "ix_traffic_events_status_timestamp",
+      "ix_traffic_events_timestamp",
+      "uq_traffic_events_event_id"
+    ],
+    "alert_evidence": [
+      "ix_alert_evidence_alert_id",
+      "ix_alert_evidence_event_id"
+    ]
+  },
+  "restart_checked_at_utc": "2026-10-22T10:45:48.910141+00:00"
+}

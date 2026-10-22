@@ -1,0 +1,1093 @@
+{
+  "log_path": "/home/wso2carbon/wso2am-4.5.0/repository/logs/api.log",
+  "observations": [
+    {
+      "prefix": "[2026-10-22 09:55:24,442]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:24,451]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 401,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:26,523]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:26,525]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 401,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:28,594]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:28,604]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:28,626]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:28,629]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:30,697]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "POST",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:30,701]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "POST",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:30,712]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "POST",
+        "statusCode": 201,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:30,713]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "POST",
+        "statusCode": 201,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:32,774]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:32,777]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:32,786]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 404,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:32,787]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 404,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:34,846]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:34,849]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:34,854]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 09:55:34,855]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:40,542]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:40,548]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:40,560]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:40,561]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:42,638]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:42,641]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:42,644]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:42,647]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:44,710]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:44,712]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:44,717]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:44,717]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:46,799]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:46,801]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:46,804]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:46,805]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:48,895]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:48,898]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:48,904]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 404,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:48,905]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 404,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:50,966]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:22:50,968]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 401,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:24,627]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:24,631]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:24,639]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:24,640]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:26,715]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:26,717]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:26,720]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:26,721]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:28,802]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:28,805]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:28,808]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:28,808]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:30,878]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:30,880]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:30,883]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:30,883]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:32,964]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:32,976]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:32,983]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 404,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:32,984]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 404,
+        "endpoint_template": "/api/v1/orders/{order_id}"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:35,048]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:27:35,049]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 401,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:35:44,311]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_IN",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:35:44,315]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "sourceIP",
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow"
+      ],
+      "safe": {
+        "flow": "REQUEST_OUT",
+        "verb": "GET",
+        "statusCode": null,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:35:44,325]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_IN",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    },
+    {
+      "prefix": "[2026-10-22 10:35:44,326]  INFO {API_LOG} DemoCommerceAPI",
+      "fields": [
+        "verb",
+        "correlationId",
+        "apiTo",
+        "flow",
+        "statusCode"
+      ],
+      "safe": {
+        "flow": "RESPONSE_OUT",
+        "verb": "GET",
+        "statusCode": 200,
+        "endpoint_template": "/api/v1/orders"
+      }
+    }
+  ]
+}

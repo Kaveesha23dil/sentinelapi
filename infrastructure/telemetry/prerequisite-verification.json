@@ -1,0 +1,8 @@
+{
+  "checked_at_utc": "2026-10-22T10:37:10.485817+00:00",
+  "step4_marker_still_present": true,
+  "prior_test_database": "sentinelapi_test_b12dbfe1371343df97e72de846b98774",
+  "marker_event_id": "04ee5eb5-df0c-47e3-9fae-823c6a6d4055",
+  "main_migration_revision": "71a9c2e16b05",
+  "step3_3_complete": false
+}
