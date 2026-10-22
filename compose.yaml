@@ -2,6 +2,45 @@
 name: sentinelapi
 
 services:
+  postgres:
+    image: postgres:17.11-bookworm
+    container_name: sentinelapi-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sentinelapi}
+      POSTGRES_USER: ${POSTGRES_USER:-sentinelapi_owner}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your private environment}
+      TZ: UTC
+    volumes:
+      - sentinelapi-postgres-data:/var/lib/postgresql/data
+    networks:
+      - database-network
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+    restart: unless-stopped
+
+  persistence:
+    build:
+      context: ./backend
+    image: sentinelapi/persistence:local
+    profiles: [tools]
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: ${POSTGRES_DB:-sentinelapi}
+      POSTGRES_USER: ${POSTGRES_USER:-sentinelapi_owner}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your private environment}
+      PYTHONUNBUFFERED: "1"
+    networks:
+      - database-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: [alembic, upgrade, head]
+
   democommerce:
     build:
       context: ./demo-services/democommerce
@@ -25,6 +64,11 @@ services:
     restart: unless-stopped
 
 networks:
+  database-network:
+    internal: true
   sentinelapi-network:
     external: true
     name: sentinelapi-network
+
+volumes:
+  sentinelapi-postgres-data:

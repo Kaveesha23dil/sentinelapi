@@ -1,0 +1,48 @@
+{
+  "tables": [
+    "alembic_version",
+    "audit_logs",
+    "api_services",
+    "security_alerts",
+    "detection_rules",
+    "traffic_aggregates",
+    "traffic_events",
+    "alert_evidence"
+  ],
+  "indexes": {
+    "alembic_version": [],
+    "audit_logs": [
+      "ix_audit_logs_entity",
+      "ix_audit_logs_timestamp"
+    ],
+    "api_services": [
+      "uq_api_services_gateway_api_id",
+      "uq_api_services_name"
+    ],
+    "security_alerts": [
+      "ix_security_alerts_api_detected",
+      "ix_security_alerts_rule_id",
+      "ix_security_alerts_status_severity"
+    ],
+    "detection_rules": [
+      "uq_detection_rules_name"
+    ],
+    "traffic_aggregates": [
+      "uq_traffic_aggregates_api_service_id"
+    ],
+    "traffic_events": [
+      "ix_traffic_events_api_timestamp",
+      "ix_traffic_events_status_timestamp",
+      "ix_traffic_events_timestamp",
+      "uq_traffic_events_event_id"
+    ],
+    "alert_evidence": [
+      "ix_alert_evidence_alert_id",
+      "ix_alert_evidence_event_id"
+    ]
+  },
+  "server_version": "17.11 (Debian 17.11-1.pgdg12+2)",
+  "timezone": "UTC",
+  "alembic_revision": "4061c4c0ee19",
+  "traffic_event_count": 0
+}

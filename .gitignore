@@ -20,3 +20,8 @@ screenshots/private/
 .coverage
 coverage/
 *.egg-info/
+
+# Database runtime files and backups belong outside source control.
+pgdata/
+*.dump
+*.backup

@@ -1,0 +1,67 @@
+{
+  "checked_at_utc": "2026-10-22T07:30:27.073626+00:00",
+  "passed": true,
+  "api_id": "f0d23a14-460c-4441-9c76-0f39bfd2efb3",
+  "name": "DemoCommerceAPI",
+  "version": "1.0.0",
+  "context": "/democommerceapi",
+  "requested_context": "/democommerce",
+  "requested_context_matches": false,
+  "step_3_2_complete": false,
+  "gateway_url": "https://localhost:8243/democommerceapi/1.0.0",
+  "production_endpoint": "http://democommerce:8000",
+  "security": "OAuth2",
+  "subscription_policy": "Unlimited",
+  "application_name": "SentinelAPITestClient",
+  "application_id": "71cddcdc-ae71-44e0-a061-54e057bca7a7",
+  "subscription_id": "14aa068a-99b5-4462-a0c1-ac9e1aaa40b7",
+  "token_validity_seconds": 300,
+  "deployments": [
+    {
+      "revisionUuid": "3a8ce000-e880-4803-85a9-6ca3e035463b",
+      "name": "Default",
+      "status": "APPROVED",
+      "vhost": "localhost",
+      "displayOnDevportal": true,
+      "deployedTime": 1792515052000,
+      "successDeployedTime": null
+    }
+  ],
+  "tests": [
+    {
+      "test": "orders_without_token",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "test": "orders_with_token",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "test": "create_order",
+      "expected": 201,
+      "actual": 201,
+      "passed": true
+    },
+    {
+      "test": "nonexistent_order",
+      "expected": 404,
+      "actual": 404,
+      "passed": true
+    },
+    {
+      "test": "read_created_order",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "test": "backend_read_back",
+      "actual": 200,
+      "passed": true
+    }
+  ]
+}
