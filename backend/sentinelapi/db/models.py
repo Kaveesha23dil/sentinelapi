@@ -41,11 +41,11 @@ class TrafficEvent(Identity, Created, Base):
     api_service_id: Mapped[UUID] = mapped_column(ForeignKey('api_services.id', ondelete='RESTRICT'))
     event_id: Mapped[UUID] = mapped_column(unique=True)
     timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True))
-    client_identifier: Mapped[str] = mapped_column(String(128))
+    client_identifier: Mapped[str | None] = mapped_column(String(128))
     http_method: Mapped[str] = mapped_column(String(8))
     endpoint: Mapped[str] = mapped_column(String(512))
     status_code: Mapped[int] = mapped_column(Integer)
-    latency_ms: Mapped[Decimal] = mapped_column(Numeric(14, 3))
+    latency_ms: Mapped[Decimal | None] = mapped_column(Numeric(14, 3))
     source: Mapped[str] = mapped_column(String(64))
     __table_args__ = (
         CheckConstraint('status_code BETWEEN 100 AND 599', name='status_range'),

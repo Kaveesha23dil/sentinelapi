@@ -3,3 +3,6 @@ alembic==1.18.4
 psycopg[binary]==3.2.13
 pydantic==2.12.5
 pytest==9.0.2
+fastapi==0.128.0
+uvicorn==0.40.0
+httpx==0.28.1

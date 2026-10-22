@@ -26,12 +26,12 @@ class EventInput(StrictModel):
     api_service_id: UUID
     event_id: UUID
     timestamp: AwareDatetime
-    client_identifier: Pseudonym
+    client_identifier: Pseudonym | None = None
     http_method: Literal['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS', 'TRACE', 'CONNECT']
     # A normalized route template, with no query string, fragment or request body.
     endpoint: Annotated[str, StringConstraints(pattern=r'^/[A-Za-z0-9_/{}/.-]*$', max_length=512)]
     status_code: int = Field(ge=100, le=599)
-    latency_ms: Decimal = Field(ge=0, le=99999999999, max_digits=14, decimal_places=3, allow_inf_nan=False)
+    latency_ms: Decimal | None = Field(default=None, ge=0, le=99999999999, max_digits=14, decimal_places=3, allow_inf_nan=False)
     source: Literal['demo-test', 'wso2-gateway']
 
     @field_validator('timestamp')
