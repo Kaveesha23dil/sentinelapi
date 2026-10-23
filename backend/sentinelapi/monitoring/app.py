@@ -95,10 +95,16 @@ def overview(start: datetime | None = None, end: datetime | None = None,
 
 @app.get('/api/v1/monitoring/events', dependencies=[Depends(authorize)])
 def events(start: datetime | None = None, end: datetime | None = None, api_id: UUID | None = None,
+           http_method: str | None = Query(None, pattern='^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS|TRACE|CONNECT)$'),
+           status_code: int | None = Query(None, ge=100, le=599),
            page: int = Query(1, ge=1, le=10000), page_size: int = Query(50, ge=1, le=100),
            db: Session = Depends(session)):
     start, end = period(start, end)
     clauses = filters(start, end, api_id)
+    if http_method is not None:
+        clauses.append(TrafficEvent.http_method == http_method)
+    if status_code is not None:
+        clauses.append(TrafficEvent.status_code == status_code)
     total = db.scalar(select(func.count()).select_from(TrafficEvent).where(*clauses))
     rows = db.scalars(select(TrafficEvent).where(*clauses)
         .order_by(TrafficEvent.timestamp.desc(), TrafficEvent.id.desc()).offset((page-1)*page_size).limit(page_size)).all()
@@ -137,3 +143,5 @@ from sentinelapi.detection.api import router as security_router
 app.include_router(security_router)
 from sentinelapi.ml.api import router as ml_router
 app.include_router(ml_router)
+from sentinelapi.monitoring.dashboard import router as dashboard_router
+app.include_router(dashboard_router)
