@@ -4,7 +4,7 @@ from decimal import Decimal
 from uuid import UUID, uuid4
 
 from sqlalchemy import (Boolean, CheckConstraint, DateTime, ForeignKey, Index,
-                        Integer, MetaData, Numeric, String, Text, UniqueConstraint, func)
+                        Integer, MetaData, Numeric, String, Text, UniqueConstraint, func, Double)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -140,3 +140,21 @@ class DetectionCheckpoint(Base):
     __tablename__ = 'detection_checkpoints'
     name: Mapped[str] = mapped_column(String(64), primary_key=True)
     watermark: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class MLWindow(Identity, Created, Base):
+    __tablename__ = 'ml_windows'
+    api_service_id: Mapped[UUID] = mapped_column(ForeignKey('api_services.id', ondelete='RESTRICT'))
+    window_id: Mapped[str] = mapped_column(String(64))
+    window_start: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    window_end: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    schema_version: Mapped[str] = mapped_column(String(64))
+    model_version: Mapped[str] = mapped_column(String(64))
+    decision_score: Mapped[float] = mapped_column(Double)
+    anomaly: Mapped[bool] = mapped_column(Boolean)
+    features: Mapped[dict] = mapped_column(JSONB)
+    provenance: Mapped[str] = mapped_column(String(64))
+    alert_id: Mapped[UUID | None] = mapped_column(ForeignKey('security_alerts.id', ondelete='RESTRICT'))
+    __table_args__ = (UniqueConstraint('window_id', 'model_version'),
+        CheckConstraint('window_end > window_start', name='window_order'),
+        Index('ix_ml_windows_api_start', 'api_service_id', 'window_start'))
