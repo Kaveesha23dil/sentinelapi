@@ -78,3 +78,40 @@ test('demo never sends backend requests and reload does not retain credentials',
   await page.reload()
   await expect(page.getByText('Connect to your security data')).toBeVisible()
 })
+
+test('traffic service filter follows URL changes and browser history', async ({ page }) => {
+  await page.getByRole('link', { name: 'API traffic', exact: true }).click()
+  await expect(page.getByRole('combobox', { name: 'API service', exact: true })).toHaveValue('')
+  await page.evaluate(() => {
+    window.history.pushState({}, '', '/traffic?api_id=00000000-0000-4000-8000-000000000002')
+    window.dispatchEvent(new PopStateEvent('popstate'))
+  })
+  await expect(page.getByRole('combobox', { name: 'API service', exact: true })).toHaveValue('00000000-0000-4000-8000-000000000002')
+  await page.goBack()
+  await expect(page.getByRole('combobox', { name: 'API service', exact: true })).toHaveValue('')
+})
+
+test('closing connection settings cancels pending verification', async ({ page }) => {
+  let finish!: () => void
+  const released = new Promise<void>((resolve) => {
+    finish = resolve
+  })
+  await page.route('**/api/v1/monitoring/session', async (route) => {
+    await released
+    await route
+      .fulfill({ json: { role: 'monitor', capabilities: ['monitoring:read'] } })
+      .catch(() => {})
+  })
+  await page.getByRole('button', { name: 'Connect backend' }).click()
+  await page.getByLabel('Monitoring credential').fill('fixture-only-token')
+  const started = page.waitForRequest('**/api/v1/monitoring/session')
+  await page.getByRole('button', { name: 'Verify and connect' }).click()
+  await started
+  await page.getByRole('button', { name: 'Close connection settings' }).click()
+  finish()
+  await page.getByRole('button', { name: 'Connect backend' }).click()
+  await expect(page.getByLabel('Monitoring credential')).toHaveValue('')
+  await expect(page.getByRole('button', { name: 'Verify and connect' })).toBeEnabled()
+  await page.getByRole('button', { name: 'Close connection settings' }).click()
+  await expect(page.getByText('DEMO DATA')).toBeVisible()
+})
