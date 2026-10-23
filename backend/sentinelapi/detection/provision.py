@@ -36,6 +36,8 @@ def main():
             raw.execute('GRANT SELECT, INSERT ON ml_windows TO sentinelapi_detector')
             raw.execute('GRANT UPDATE (alert_id) ON ml_windows TO sentinelapi_detector')
             raw.execute('GRANT SELECT ON ml_windows TO sentinelapi_security')
+            raw.execute('GRANT SELECT (event_id, timestamp, http_method, endpoint, status_code) ON traffic_events TO sentinelapi_security')
+            raw.execute('GRANT SELECT (id, timestamp, action, metadata, entity_type, entity_id) ON audit_logs TO sentinelapi_security')
         print('Scoped runtime roles provisioned; no existing alerts or telemetry modified.')
     finally:
         engine.dispose()

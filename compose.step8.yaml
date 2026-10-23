@@ -1,0 +1,13 @@
+# Adds only the dashboard. Never recreate existing persistent services implicitly.
+services:
+  dashboard:
+    build:
+      context: ./frontend
+    image: sentinelapi/security-dashboard:local
+    ports: ["127.0.0.1:8080:8080"]
+    networks: [monitoring-network]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped

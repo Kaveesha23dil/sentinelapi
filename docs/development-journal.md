@@ -256,3 +256,94 @@ Local checkpoints (no push or merge):
   subject `docs: document ML model and experiment results`.
 
 Remote PR creation remains pending explicit approval to push only the feature branch.
+
+## 2026-10-23 — Step 8 React security dashboard
+
+Started clean on feature/security-dashboard at c8fad4a, merged Step 7 PR #3.
+Fetched origin and confirmed HEAD/main/origin-main were identical. No dependency
+branch needed, no reset/discard. Reviewed the empty frontend, actual backend routes,
+auth/schema/grants, Compose, tests and Step 7 evidence. The explicit Step 8 request
+supersedes AGENTS.md's historical milestone. Step 7 remains experimental despite
+its merge. Docker/current PostgreSQL and the prior live acceptance remain unavailable.
+No WSO2 config, persistent container, database data or volume was changed.
+
+Built seven dark responsive React/TypeScript/Vite views using the requested palette,
+Inter, Tailwind, official shadcn component sources, Router, TanStack Query, Recharts,
+Lucide and Zod. Retained exact dependency versions and lockfile. Added typed validated
+contracts, shared loading/empty/error/partial states, safe endpoint display, accessible
+navigation, time filters, pagination, page-limited alert sorting, incident evidence/
+audit, analyst/admin status confirmation, admin rule controls and ML provenance.
+Synthetic-only evaluation is explicitly experimental; no anomalous behavior is
+classified as proven malicious intent. API health/client identity/latency remain
+unavailable where unsupported. Collector UUIDs are not labeled gateway correlation IDs.
+
+Added actual authenticated read-only backend inventory/timeseries/endpoint aggregates,
+server method/status filters, session capabilities and sanitized incident event/audit
+queries. No schema migration. Limited new security role grants are implemented but
+not applied here. Live tokens are supplied through a password dialog and verified
+against backend capabilities; kept only in memory, never storage/URLs/query keys or
+environment bundles. Independent credentials permit partial source access. Demo is
+explicit, persistently labeled, read-only and never a live-error fallback. Production
+Docker config disables its entry. No SSE/WebSocket infrastructure exists, so live
+active views poll every 30s with background/inactive polling stopped appropriately.
+
+Added isolated frontend Docker/Nginx/Compose configuration, loopback 8080 and only
+monitoring-network; same-origin proxies avoid wildcard CORS/database exposure. Not
+Docker-validated/applied here. Development browser URL: 127.0.0.1:5173 via npm run dev.
+Production identity/TLS/BFF review is still required before external deployment.
+
+Executed final checks: frontend lint zero errors/warnings; TypeScript and production
+build pass; 32 component/client/contract tests pass. Five actual Chromium browser
+tests pass, including axe A/AA scans for all seven desktop screens, mobile layout,
+filters/pagination/refresh, demo isolation, and explicitly mocked capability-driven
+updates/reload/reconnect and 401/403 handling. Mocked persistence is not real DB proof.
+Backend/tool regressions: 126 passed plus four subtests, one existing AnyIO warning.
+Collector/demo: 30 passed and two unchanged Windows os.O_DIRECTORY failures. Python
+disjoint total 156 passed, two known platform failures, plus four subtests. The
+32 real PostgreSQL/monitoring checks were collected, NOT executed, including three
+new dashboard SQL/evidence/history checks. Actual reports retained under
+infrastructure/dashboard; failure trace whitespace only was normalized for Git.
+
+Resolved sandbox npm EACCES through approved installation; initial demo-config/lazy
+test waits/duplicate selectors; deployment JS lint globals; bundle split/static demo
+import warnings; missing Chromium; Node 26 JSON import attribute. Browser testing
+found genuine mobile overflow from an absolutely positioned table accessibility label;
+positioned its scroll container and verified 390px document width. Final build has
+separate route/chart/fixture chunks without chunk-size warnings. Formatted source
+with pinned Prettier for maintainability. Credential-pattern review found no matches.
+
+Captured and visually reviewed nine real screenshots: seven demo-labeled app views,
+one 390px responsive view, and actual five-pass Playwright HTML report. No generated/
+reconstructed UI or test summary. GitHub PR capture 10 pending approval and actual PR.
+README, architecture, verification, evidence tracker and concrete local PR body are
+prepared. Step 8 implementation is ready for review; real WSO2 -> persisted traffic
+-> dashboard, actual incident updates and ML provenance acceptance remain pending.
+No Step 9 implementation or final technical blog. Task-owned preview/report processes
+were identified for cleanup; npm run dev is the documented way to reopen the app.
+
+Local checkpoints, no push or merge:
+- 48ef53b chore: initialize SentinelAPI React dashboard
+- 552dc46 feat: build security overview and API traffic pages
+- 508a0b2 feat: add security alerts and incident investigation
+- 70fb4c9 feat: add ML monitoring and detection rule views
+- 227b518 test: add dashboard component and browser tests
+- Documentation checkpoint: `git log -1 --format=%H -- docs/step-8-verification.md`,
+  subject `docs: document dashboard architecture and usage`.
+
+Prepared PR: docs/step-8-pr.md. Explicit approval is required before pushing only
+feature/security-dashboard; separate approval is required before merge.
+
+### 2026-10-23 — Premium dashboard visual refresh
+
+User-requested dashboard styling update inspired by the supplied pharmacy dashboard reference. Applied a mint workspace, dark teal active navigation, rounded translucent panels, six pastel metric cards, and coordinated chart colors. Retained existing API security terminology, data semantics, navigation, session handling, filters, and responsive layouts. Shared CSS surfaces cover all seven screens; no backend or persistent Docker changes.
+
+Validation:
+- `npm run build` (frontend): passed production compilation and bundling.
+- `npm run test` (frontend): 3 files, 32 tests passed.
+- `npm run lint` (frontend): passed.
+- `npm run test:browser` (frontend, installed browser path configured): all 5 tests passed, including seven-screen WCAG A/AA scans, mobile overflow, filters, pagination, session updates, and demo isolation.
+- Real browser screenshots refreshed under `screenshots/08-security-dashboard/` (01–08). Demo fixtures are visibly labeled; screenshots contain no credentials.
+
+Issues resolved: sandbox browser initially could not access loopback and used a missing sandbox-local browser cache. Used the existing installed Chromium outside the sandbox for verification. Accessibility scans identified inherited low-contrast labels and select backgrounds; corrected these and reran the full browser suite successfully.
+
+Commit association: working tree based on `8e530d9`; changes left uncommitted for review. No push performed.
