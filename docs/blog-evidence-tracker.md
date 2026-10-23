@@ -70,3 +70,23 @@ incomplete independently of the verified Step 5 collection path.
   checkpoint with `git log -1 --format=%H -- docs/step-7-verification.md`.
 - PR text: docs/step-7-pr.md. No feature push, remote PR or merge authorized.
   GitHub capture remains pending approved push and actual PR creation.
+
+## Step 8 — React security dashboard, live acceptance pending
+
+- Clean base c8fad4a (Step 7 merge); branch feature/security-dashboard.
+- Seven actual React screens, typed live contracts and explicit read-only demo mode.
+- Nine authentic captures under screenshots/08-security-dashboard: 01–08 show
+  DEMO DATA and 09 shows the real Playwright five-pass HTML report. All inspected.
+- 10-github-dashboard-pr.png pending approved push and actual remote PR. The folder
+  README supplies exact manual Windows capture/redaction instructions.
+- Actual reports: infrastructure/dashboard. Frontend 32 passed; browser five passed
+  including seven axe scans. Backend/tools 126 passed plus four subtests; collector/
+  demo 30 passed, two known Windows platform failures. Lint/typecheck/build pass.
+- 32 real DB/monitoring tests collected, not executed. Browser auth/update tests use
+  labeled mocked APIs; screenshots and synthetic ML evaluation are not live proof.
+- No WSO2/PostgreSQL/volume/service recreation. Current real traffic and end-to-end
+  dashboard acceptance remain blocked by the existing Docker/DB environment.
+- Checkpoints: 48ef53b, 552dc46, 508a0b2, 70fb4c9, 227b518. Final documentation commit:
+  `git log -1 --format=%H -- docs/step-8-verification.md`.
+- Architecture: docs/dashboard-architecture.md. Reproduction/limitations:
+  docs/step-8-verification.md. Prepared local PR: docs/step-8-pr.md. No push/merge yet.

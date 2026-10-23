@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-23T10:55:54.256003+00:00",
+  "branch": "feature/security-dashboard",
+  "base": "c8fad4a",
+  "step7_merged": true,
+  "frontend_tests_passed": 32,
+  "browser_tests_passed": 5,
+  "backend_tool_tests_passed": 126,
+  "python_subtests_passed": 4,
+  "collector_demo_tests_passed": 30,
+  "known_windows_collector_failures": 2,
+  "postgres_tests_collected_not_executed": 32,
+  "lint": "passed",
+  "typecheck": "passed",
+  "production_build": "passed",
+  "live_wso2_postgres_acceptance": "pending",
+  "docker_deployment": "not_executed",
+  "screenshots": [
+    "01-dashboard-overview.png",
+    "02-api-traffic.png",
+    "03-threat-alerts.png",
+    "04-incident-details.png",
+    "05-detection-rules.png",
+    "06-ml-monitoring.png",
+    "07-api-services.png",
+    "08-responsive-dashboard.png",
+    "09-dashboard-test-results.png"
+  ],
+  "github_pr_screenshot": "pending",
+  "credential_pattern_scan": {
+    "files": 75,
+    "hits": []
+  }
+}
