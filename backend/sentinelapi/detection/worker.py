@@ -104,6 +104,12 @@ async def serve():
             except Exception:
                 # Do not log SQL, parameters, source records or driver exception text.
                 LOG.error('detector_cycle_failed checkpoint_not_advanced')
+            try:
+                # Separate transaction/failure domain; never the WSO2 request path.
+                from sentinelapi.ml.worker import run_once as ml_run_once
+                await asyncio.to_thread(ml_run_once, engine)
+            except Exception:
+                LOG.error('ml_cycle_failed checkpoint_not_advanced')
             await asyncio.sleep(5)
     finally:
         engine.dispose()

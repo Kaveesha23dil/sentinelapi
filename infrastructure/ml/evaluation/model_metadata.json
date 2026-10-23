@@ -1,0 +1,33 @@
+{
+  "version": "iforest-a51ad3e496475a8d",
+  "schema": "api-60s-v1",
+  "features": [
+    "request_count",
+    "error_4xx_ratio",
+    "error_5xx_ratio",
+    "unique_endpoints",
+    "get_ratio",
+    "post_ratio",
+    "status_code_diversity"
+  ],
+  "api_id": "synthetic-demo-api",
+  "provenance": "synthetic-controlled",
+  "production_ready": false,
+  "trained_at": "2026-10-23T08:19:24.257416+00:00",
+  "training_windows": 360,
+  "training_start": "2026-01-01T00:00:00+00:00",
+  "training_end": "2026-01-01T06:00:00+00:00",
+  "dataset_sha256": "2c72c1e401cff0339d68741814f45967983dfe5cd0b8b175818baaff840193ce",
+  "sklearn": "1.7.2",
+  "python": "3.12.14",
+  "numpy": "2.3.4",
+  "joblib": "1.5.2",
+  "config": {
+    "n_estimators": 200,
+    "contamination": 0.05,
+    "random_state": 42
+  },
+  "score_direction": "decision_function < 0 is anomalous; lower is more unusual",
+  "score_calibration": null,
+  "artifact_sha256": "9ca2841474c7e9fb56c94c5e7079a2c57265908efd0c4f8d7e55986feba7386f"
+}

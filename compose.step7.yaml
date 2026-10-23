@@ -1,0 +1,24 @@
+# Opt-in for the Step 6 detector/API only. Never apply with service recreation
+# without reviewing the existing deployment. No WSO2/PostgreSQL changes.
+services:
+  detector:
+    build:
+      context: .
+      dockerfile: backend/sentinelapi/ml/Dockerfile
+    image: sentinelapi/ml-detection:local
+    environment:
+      ML_MODEL_DIR: /models/approved
+      ML_APPROVED_SHA256: ${ML_APPROVED_SHA256:?Set operator-reviewed artifact digest}
+      ML_ALLOW_EXPERIMENTAL: ${ML_ALLOW_EXPERIMENTAL:-false}
+    volumes:
+      - ${ML_MODEL_HOST_DIR:?Set approved model directory}:/models/approved:ro
+  security-api:
+    image: sentinelapi/ml-detection:local
+    environment:
+      ML_MODEL_DIR: /models/approved
+      ML_APPROVED_SHA256: ${ML_APPROVED_SHA256:?Set operator-reviewed artifact digest}
+      ML_EVALUATION_FILE: /evaluation/evaluation_metrics.json
+      ML_ALLOW_EXPERIMENTAL: ${ML_ALLOW_EXPERIMENTAL:-false}
+    volumes:
+      - ${ML_MODEL_HOST_DIR:?Set approved model directory}:/models/approved:ro
+      - ./infrastructure/ml/evaluation:/evaluation:ro

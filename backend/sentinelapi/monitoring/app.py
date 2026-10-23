@@ -135,3 +135,5 @@ def health(db: Session = Depends(session)):
 
 from sentinelapi.detection.api import router as security_router
 app.include_router(security_router)
+from sentinelapi.ml.api import router as ml_router
+app.include_router(ml_router)

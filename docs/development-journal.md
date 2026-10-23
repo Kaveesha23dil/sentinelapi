@@ -184,3 +184,75 @@ rule catalog, acceptance procedure and unpublished PR text prepared. No push/PR/
 Step 6 is incomplete until real PostgreSQL, grants and WSO2 alert proof pass; no
 Step 7 implementation started. Documentation commit is discoverable with
 `git log -1 --format=%H -- docs/step-6-verification.md`.
+
+## 2026-10-23 — Step 7 experimental ML anomaly detection
+
+Started clean on feature/ml-anomaly-detection at 1770c21. Fetched origin successfully;
+HEAD/main/origin-main were identical, including merged Step 6 PR #2. The explicit
+Step 7 request supersedes AGENTS.md's historical Step 3.2 marker. Inspected actual
+schema, collector, worker, alerts, auth/grants, migrations, tests and prior journal.
+The Step 6 merge does not establish runtime acceptance: its journal still records
+live PostgreSQL/WSO2 verification pending. Docker is absent here and PostgreSQL was
+internal-only; no current database or gateway claim is made. Retained Step 5 evidence
+records 21 genuine gateway rows with absent latency/client measurements. No WSO2
+configuration, persistent service, volume or existing database data was modified.
+
+Implemented ordered api-60s-v1 feature extraction, five-request eligibility,
+deduplication/conflict checks, UTC fixed windows and finalized-minute policy.
+Excluded unsupported latency and client identity. Added bounded historical read-only
+profiling, per-API deterministic Isolation Forest training, chronological splitting,
+version/provenance/schema/environment metadata and trusted checksum-verified local
+joblib bundles. Artifacts remain under ignored .runtime; no binary model committed.
+Documented deserialization risks, missing data, late-event replay and baseline limits.
+
+Integrated an independent ML transaction into the existing asynchronous worker,
+additive ml_windows migration, atomic scores/alerts/evidence/checkpoints, overlapping
+rule-alert correlation and scoped grants. Four read-only authenticated ML routes
+expose artifact readiness, actual evaluation metadata and filtered/paginated anomalies.
+No training/upload route or model execution in the WSO2 request path. Synthetic API
+identity cannot be edited to masquerade as a live baseline. All trained models are
+experimental and require explicit experimental deployment enablement.
+
+Executed seed-42 controlled generation: 25,953 fabricated events, 540 minutes,
+360 normal training minutes and 180 chronological held-out minutes (60 normal,
+120 controlled scenarios). Rotating five-minute blocks include benign bursts and
+ambiguous moderate volume, deliberately retaining hard cases. Model
+iforest-a51ad3e496475a8d: 200 trees, contamination 0.05, random_state 42, n_jobs 1.
+ML confusion matrix [[56,4],[66,54]], precision 0.9310344828, recall 0.45,
+F1 0.6067415730, FPR 0.0666666667. Actual Step 6 error-rate evaluator on the exact
+same events: [[60,0],[96,24]], precision 1.0, recall 0.2, F1 0.3333333333, FPR 0.
+These are synthetic results, not production accuracy or proof of malicious intent.
+No live latency, anomaly or alert was observed. Re-execution reproduced predictions
+and model version. Retained genuine CSV/JSON and three visually inspected PNG charts.
+
+Final supported-host command in step-7-verification.md: 110 passed plus four subtests,
+one pre-existing AnyIO deprecation warning. Collector regression: 18 passed and two
+existing Windows os.O_DIRECTORY failures, matching Step 6; DemoCommerce: 12 passed.
+Disjoint executed total 140 passed, two platform failures, plus four subtests. The
+29 PostgreSQL/monitoring integration tests were collected, NOT executed (includes
+two new ML alert/evidence/idempotence tests). No false green report. JUnit evidence
+retains the actual failures; only trailing whitespace in traceback lines was trimmed.
+Compilation, feature/model tests, CLI help and final whitespace/credential-pattern
+checks passed. Initial assertions needing updates: expected metadata table count and
+DDL guard distinguishing ON DELETE RESTRICT from destructive DELETE FROM. A local
+test-file refactoring command initially hit PowerShell quoting/Windows text-decoding
+issues; corrected through stdin and explicit UTF-8 before the final passing run.
+
+Created screenshots/07-ml-anomaly-detection with three authentic numbered chart
+artifacts. Zero application/terminal/GitHub screenshots captured; six manual captures
+remain pending with exact instructions. Architecture/model card/evaluation/verification,
+evidence tracker and local PR text are prepared. Step 8 and final internship blog not
+started. Step 7 remains experimental until real history, migrations/grants, live
+WSO2-to-alert scoring and replay tests are verified on the existing Docker host.
+
+Local checkpoints (no push or merge):
+- 33c1d76 feat: add API traffic feature engineering
+- dde43d0 feat: implement isolation forest training pipeline
+- e0a2c93 feat: integrate ML anomaly scoring
+- 0db122b feat: connect ML anomalies to security alerts
+- 321fbaa test: add ML detection evaluation and benchmarks
+- Final documentation checkpoint: resolve with
+  `git log -1 --format=%H -- docs/step-7-verification.md`;
+  subject `docs: document ML model and experiment results`.
+
+Remote PR creation remains pending explicit approval to push only the feature branch.
