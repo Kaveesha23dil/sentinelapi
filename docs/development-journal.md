@@ -347,3 +347,25 @@ Validation:
 Issues resolved: sandbox browser initially could not access loopback and used a missing sandbox-local browser cache. Used the existing installed Chromium outside the sandbox for verification. Accessibility scans identified inherited low-contrast labels and select backgrounds; corrected these and reran the full browser suite successfully.
 
 Commit association: working tree based on `8e530d9`; changes left uncommitted for review. No push performed.
+
+### 2026-10-23 — Dashboard issue fixes
+
+Created `fix/dashboard-issues` from `97b42b6` before editing, with an initially clean working tree. The sandbox initially blocked branch metadata writes; the approved retry created the branch. User explicitly requested dashboard fixes, extending the older milestone scope in AGENTS.md. No persistent containers were changed.
+
+Fixed pending connection verification restoring live credentials after disconnect or demo selection, and older connection attempts replacing a newer session. Verification now uses an AbortController, checks cancellation before committing session state, snapshots credentials, and cancels on provider unmount. Closing connection settings cancels verification and ignores stale completion handlers; reopening clears credentials and the busy state. Added four provider regression tests and a browser cancellation test using explicitly mocked API responses.
+
+Fixed traffic service filters retaining stale state when the URL query changes on the same route. Route content now remounts for query-string changes; a browser regression checks both the service deep link and browser Back.
+
+Actual validation from `frontend`:
+- `npm run lint`: passed.
+- `npm run typecheck`: passed.
+- `npm test`: 36 tests passed across four files.
+- `npm run build`: passed.
+- `npm run test:browser`: seven tests passed, including seven-screen WCAG A/AA scans, responsive overflow, session cancellation, URL/history filters, and existing mocked backend workflows.
+- `git diff --check`: passed (Git emitted line-ending conversion notices).
+
+The first expanded browser run had six passes and one failure: the test's partial `getByLabel('API service')` locator matched a navigation link. An exact combobox role/name fixed the test selector; all seven tests passed on rerun. Authentic demo screenshots were refreshed by the existing browser suite under `screenshots/08-security-dashboard/`; the overview capture was visually inspected. No credentials were captured.
+
+Remaining environment limitation: Docker is unavailable, so WSO2, PostgreSQL, collector, and live monitoring/security integration cannot be started or certified here. These checks validate the dashboard and mocked API workflows, not live backend acceptance. No backend or infrastructure implementation was changed.
+
+Commit association: uncommitted changes on `fix/dashboard-issues`, based on `97b42b6`. No commit or push performed.

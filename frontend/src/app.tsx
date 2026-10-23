@@ -53,6 +53,8 @@ const descriptions: Record<string, string> = {
 }
 function Connection({ open, onClose }: { open: boolean; onClose: () => void }) {
   const session = useSession()
+  const { cancelConnect } = session
+  const attempt = useRef(0)
   const ref = useRef<HTMLDialogElement>(null)
   const [monitoring, setMonitoring] = useState('')
   const [security, setSecurity] = useState('')
@@ -64,6 +66,12 @@ function Connection({ open, onClose }: { open: boolean; onClose: () => void }) {
       ref.current?.close()
     }
   }, [open])
+  useEffect(() => {
+    return () => {
+      attempt.current += 1
+      cancelConnect()
+    }
+  }, [open, cancelConnect])
   return (
     <dialog
       ref={ref}
@@ -74,6 +82,7 @@ function Connection({ open, onClose }: { open: boolean; onClose: () => void }) {
         setMonitoring('')
         setSecurity('')
         setError('')
+        setBusy(false)
         onClose()
       }}
     >
@@ -103,15 +112,21 @@ function Connection({ open, onClose }: { open: boolean; onClose: () => void }) {
           }
           setBusy(true)
           setError('')
+          const currentAttempt = ++attempt.current
           void session
             .connect({ monitoring, security })
             .then(() => {
+              if (currentAttempt !== attempt.current) return
               setMonitoring('')
               setSecurity('')
               onClose()
             })
-            .catch((e) => setError(errorMessage(e)))
-            .finally(() => setBusy(false))
+            .catch((e) => {
+              if (currentAttempt === attempt.current) setError(errorMessage(e))
+            })
+            .finally(() => {
+              if (currentAttempt === attempt.current) setBusy(false)
+            })
         }}
       >
         <label className="stack-label">
@@ -349,7 +364,10 @@ function Layout() {
               <span>Polls every 30s while visible · UTC</span>
             </div>
           )}
-          <div className="page-content" key={location.pathname + period.hours + session.epoch}>
+          <div
+            className="page-content"
+            key={location.pathname + location.search + period.hours + session.epoch}
+          >
             <Outlet />
           </div>
           <footer className="workspace-footer">

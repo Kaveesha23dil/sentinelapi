@@ -1,4 +1,12 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useRef,
+  useEffect,
+  type ReactNode,
+} from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { config, request, type Credentials, type Mode } from '@/api/client'
 import { sessionSchema } from '@/api/contracts'
@@ -11,12 +19,19 @@ type Session = {
   role: string
   epoch: number
   connect: (credentials: Credentials) => Promise<void>
+  cancelConnect: () => void
   demo: () => void
   disconnect: () => void
 }
 const SessionContext = createContext<Session | null>(null)
 export function SessionProvider({ children }: { children: ReactNode }) {
   const client = useQueryClient()
+  const connection = useRef<AbortController | null>(null)
+  useEffect(() => () => connection.current?.abort(), [])
+  const cancelConnect = useCallback(() => {
+    connection.current?.abort()
+    connection.current = null
+  }, [])
   const [state, setState] = useState({
     mode: 'live' as Mode,
     connected: false,
@@ -26,19 +41,41 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     epoch: 0,
   })
   const reset = useCallback(() => {
+    connection.current?.abort()
+    connection.current = null
     void client.cancelQueries()
     client.clear()
   }, [client])
   const connect = useCallback(
     async (credentials: Credentials) => {
+      connection.current?.abort()
+      const controller = new AbortController()
+      connection.current = controller
+      // Snapshot the caller's credentials for this verification attempt.
+      credentials = { ...credentials }
       const responses = await Promise.all([
         credentials.monitoring
-          ? request('live', credentials, '/api/v1/monitoring/session', sessionSchema)
+          ? request(
+              'live',
+              credentials,
+              '/api/v1/monitoring/session',
+              sessionSchema,
+              {},
+              controller.signal,
+            )
           : null,
         credentials.security
-          ? request('live', credentials, '/api/v1/security/session', sessionSchema)
+          ? request(
+              'live',
+              credentials,
+              '/api/v1/security/session',
+              sessionSchema,
+              {},
+              controller.signal,
+            )
           : null,
       ])
+      controller.signal.throwIfAborted()
       if (!responses.some(Boolean)) throw new Error('Supply at least one credential')
       reset()
       setState((s) => ({
@@ -75,7 +112,11 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       epoch: s.epoch + 1,
     }))
   }, [reset])
-  return <SessionContext value={{ ...state, connect, demo, disconnect }}>{children}</SessionContext>
+  return (
+    <SessionContext value={{ ...state, connect, cancelConnect, demo, disconnect }}>
+      {children}
+    </SessionContext>
+  )
 }
 // Shared hooks are kept next to their provider; no state is persisted.
 // eslint-disable-next-line react-refresh/only-export-components
