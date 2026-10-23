@@ -6,7 +6,7 @@
         state.mkdir()
 &gt;       publish({'flows': [parse(line(), CONFIG)]}, spool, state)
 
-collector\tests\test_collector.py:65: 
+collector\tests\test_collector.py:65:
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 payload = {'flows': [{'correlation_id': 'be73ac04-fae9-4f03-9534-9e1c55ee82d6', 'endpoint': '/api/v1/orders/{order_id}', 'flow': 'RESPONSE_OUT', 'method': 'GET', ...}]}
@@ -72,7 +72,7 @@ tmp_path = WindowsPath('C:/Users/kavee/AppData/Local/Temp/pytest-of-kavee/pytest
         config = Config(CONFIG.api_id, CONFIG.api_name, CONFIG.context, CONFIG.version, spool=spool, state=state)
 &gt;       publish({'flows': [parse(line(), CONFIG)]}, spool, state)
 
-collector\tests\test_collector.py:112: 
+collector\tests\test_collector.py:112:
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 payload = {'flows': [{'correlation_id': 'be73ac04-fae9-4f03-9534-9e1c55ee82d6', 'endpoint': '/api/v1/orders/{order_id}', 'flow': 'RESPONSE_OUT', 'method': 'GET', ...}]}

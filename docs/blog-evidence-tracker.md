@@ -49,3 +49,24 @@ incomplete independently of the verified Step 5 collection path.
 - Synthetic tests never substitute for WSO2 telemetry. Existing Step 5 reports are
   historical proof only and were not overwritten or relabeled as Step 6.
 - Prepared PR text: docs/step-6-pr.md; no push or remote PR. No merge approval given.
+
+## Step 7 — experimental ML, 2026-10-23
+
+- Branch feature/ml-anomaly-detection; verified merged main base 1770c21.
+- Authentic evaluation artifacts: infrastructure/ml/evaluation, including all
+  requested PNG/JSON/Markdown outputs, per-window CSV and model metadata/checksum.
+- Data: 25,953 explicitly synthetic events, 360 training/180 evaluation minutes.
+  Current real DB profile unavailable; prior Step 5 evidence has 21 real rows.
+- Actual model iforest-a51ad3e496475a8d; metrics and limitations in ml-evaluation.md.
+  No live anomaly, attack classification, production accuracy or latency claimed.
+- Evidence folder: screenshots/07-ml-anomaly-detection. Three numbered generated
+  charts are actual executed experiment results and have been visually inspected.
+  Zero application screenshots captured; six required manual captures pending.
+  README.md specifies exact capture instructions and redaction precautions.
+- Tests: 140 passed across disjoint host/collector/demo suites, two known Windows
+  collector failures, plus four subtests; 29 DB checks collected but unexecuted.
+  Actual JUnit reports are retained under infrastructure/ml, including failures.
+- Local checkpoints: 33c1d76, dde43d0, e0a2c93, 0db122b, 321fbaa. Resolve final docs
+  checkpoint with `git log -1 --format=%H -- docs/step-7-verification.md`.
+- PR text: docs/step-7-pr.md. No feature push, remote PR or merge authorized.
+  GitHub capture remains pending approved push and actual PR creation.

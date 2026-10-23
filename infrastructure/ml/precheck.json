@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-10-23T08:36:23.999385+00:00",
+  "base": "1770c21",
+  "branch": "feature/ml-anomaly-detection",
+  "step6_merged": true,
+  "step6_live_runtime_verified": false,
+  "docker_available": false,
+  "current_database_profile": null,
+  "retained_gateway_evidence": {
+    "path": "infrastructure/telemetry/runtime-status.json",
+    "events": 21,
+    "checked_at": "2026-10-22T10:51:49.258807+00:00",
+    "latency_and_client_measurements_null": true
+  },
+  "synthetic": {
+    "seed": 42,
+    "windows": 540,
+    "events": 25953,
+    "training_windows": 360,
+    "evaluation_windows": 180
+  },
+  "production_ready": false
+}
