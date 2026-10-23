@@ -1,0 +1,22 @@
+{
+  "sentinelapi_collector": {
+    "traffic_events_grants": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": false,
+      "DELETE": false
+    },
+    "elevated_role": false,
+    "default_transaction_read_only": "off"
+  },
+  "sentinelapi_monitor": {
+    "traffic_events_grants": {
+      "SELECT": true,
+      "INSERT": false,
+      "UPDATE": false,
+      "DELETE": false
+    },
+    "elevated_role": false,
+    "default_transaction_read_only": "on"
+  }
+}

@@ -79,8 +79,9 @@ def main():
     finally:
         engine.dispose()
     command.upgrade(config, 'head')
+    test_paths = ['tests', 'collector/tests'] if Path('collector/tests').exists() else ['tests']
     result = subprocess.run(['python', '-m', 'pytest', '-q', '-p', 'no:cacheprovider',
-                             '--junitxml=/tmp/sentinelapi-db-tests.xml'], check=False)
+                             '--junitxml=/tmp/sentinelapi-db-tests.xml', *test_paths], check=False)
     if result.returncode:
         args.report.write_text(json.dumps({'test_database': name, 'passed': False,
                                           'pytest_exit_code': result.returncode}) + '\n')

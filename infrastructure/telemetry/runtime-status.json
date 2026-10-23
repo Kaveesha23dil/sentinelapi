@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-10-22T10:51:49.258807+00:00",
+  "passed": true,
+  "source_scope": "last 64 KiB of current api.log; configured API only",
+  "source_flow_counts": {
+    "REQUEST_IN": 21,
+    "RESPONSE_OUT": 21,
+    "REQUEST_OUT": 15,
+    "RESPONSE_IN": 15
+  },
+  "unique_completed_source_records": 21,
+  "matched_database_records": 21,
+  "matched_monitoring_records": 21,
+  "all_measurements_null": true,
+  "monitoring_health_status": 200,
+  "overview": {
+    "start": "2026-10-21T10:51:49.284318+00:00",
+    "end": "2026-10-22T10:51:49.284318+00:00",
+    "request_count": 21,
+    "error_4xx_count": 9,
+    "error_5xx_count": 0,
+    "average_latency_ms": null,
+    "status_breakdown": {
+      "200": 11,
+      "201": 1,
+      "401": 6,
+      "404": 3
+    }
+  },
+  "gateway_no_token_and_malformed_statuses": [
+    401,
+    401
+  ],
+  "containers": {
+    "sentinelapi-wso2": {
+      "running": true,
+      "health": "not-configured"
+    },
+    "sentinelapi-democommerce": {
+      "running": true,
+      "health": "healthy"
+    },
+    "sentinelapi-postgres": {
+      "running": true,
+      "health": "healthy"
+    },
+    "sentinelapi-collector": {
+      "running": true,
+      "health": "healthy"
+    },
+    "sentinelapi-monitoring": {
+      "running": true,
+      "health": "healthy"
+    }
+  },
+  "postgres_published_ports": {
+    "5432/tcp": null
+  }
+}

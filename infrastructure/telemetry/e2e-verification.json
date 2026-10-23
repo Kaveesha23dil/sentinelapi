@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "started_at_utc": "2026-10-22T10:27:12.010400+00:00",
+  "gateway_statuses": [
+    200,
+    200,
+    200,
+    200,
+    404,
+    401
+  ],
+  "source_flow_counts": {
+    "REQUEST_IN": 6,
+    "REQUEST_OUT": 5,
+    "RESPONSE_IN": 5,
+    "RESPONSE_OUT": 6
+  },
+  "source_unique_response_count": 6,
+  "database": {
+    "count": 6,
+    "event_ids": [
+      "76ebae5e-909d-5b5d-b4a3-6fbb073d1364",
+      "78d06419-302b-58d7-81c2-6606eb1fcf8d",
+      "8bbd14d2-c278-501a-9b73-805bbadd8dfe",
+      "96b1195e-3c1a-5d55-be0b-4506ee7e06e3",
+      "a4eccbb7-2e9d-59f2-9cfe-6876e160835f",
+      "a7998c32-9021-537c-ab92-845063a47f1c"
+    ],
+    "statuses": [
+      200,
+      200,
+      200,
+      200,
+      404,
+      401
+    ],
+    "measurements_null": true,
+    "all_real_gateway_source": true,
+    "revision": "71a9c2e16b05"
+  },
+  "monitoring_event_count": 6,
+  "overview": {
+    "start": "2026-10-22T10:27:22.557773+00:00",
+    "end": "2026-10-22T10:27:36.315507+00:00",
+    "request_count": 6,
+    "error_4xx_count": 2,
+    "error_5xx_count": 0,
+    "average_latency_ms": null,
+    "status_breakdown": {
+      "200": 4,
+      "401": 1,
+      "404": 1
+    }
+  },
+  "restart_replay_checkpointed": true,
+  "post_restart_database_count": 6,
+  "post_restart_api_count": 6,
+  "monitoring_no_token_status": 401,
+  "monitoring_invalid_token_status": 401,
+  "event_ids": [
+    "76ebae5e-909d-5b5d-b4a3-6fbb073d1364",
+    "78d06419-302b-58d7-81c2-6606eb1fcf8d",
+    "8bbd14d2-c278-501a-9b73-805bbadd8dfe",
+    "96b1195e-3c1a-5d55-be0b-4506ee7e06e3",
+    "a4eccbb7-2e9d-59f2-9cfe-6876e160835f",
+    "a7998c32-9021-537c-ab92-845063a47f1c"
+  ],
+  "token_revocation_submitted": true
+}

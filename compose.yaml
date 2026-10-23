@@ -2,6 +2,93 @@
 name: sentinelapi
 
 services:
+  collector:
+    build:
+      context: .
+      dockerfile: collector/Dockerfile
+    image: sentinelapi/collector:local
+    container_name: sentinelapi-collector
+    environment: &collector-environment
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: ${POSTGRES_DB:-sentinelapi}
+      POSTGRES_USER: sentinelapi_collector
+      POSTGRES_PASSWORD: ${COLLECTOR_DB_PASSWORD:?Set private collector database password}
+      WSO2_API_ID: ${WSO2_API_ID:-f0d23a14-460c-4441-9c76-0f39bfd2efb3}
+      WSO2_API_NAME: DemoCommerceAPI
+      WSO2_API_CONTEXT: /democommerceapi
+      WSO2_API_VERSION: 1.0.0
+      WSO2_LOG_TIMEZONE: UTC
+    volumes:
+      - gateway-log-spool:/spool:ro
+      - collector-state:/state
+    networks: [database-network]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -m, traffic_collector.health]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+    stop_grace_period: 60s
+
+  log-transport:
+    image: sentinelapi/collector:local
+    profiles: [tools]
+    volumes:
+      - gateway-log-spool:/spool
+      - collector-state:/state:ro
+    network_mode: none
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    command: [python, -m, traffic_collector.transport]
+
+  telemetry-tests:
+    image: sentinelapi/collector:local
+    profiles: [tools]
+    environment:
+      <<: *collector-environment
+      POSTGRES_USER: ${POSTGRES_USER:-sentinelapi_owner}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    networks: [database-network]
+    command: [python, -m, sentinelapi.db.verify, prepare]
+
+  monitoring:
+    image: sentinelapi/collector:local
+    container_name: sentinelapi-monitoring
+    environment:
+      <<: *collector-environment
+      POSTGRES_USER: sentinelapi_monitor
+      POSTGRES_PASSWORD: ${MONITORING_DB_PASSWORD:?Set private monitoring database password}
+      MONITORING_API_TOKEN: ${MONITORING_API_TOKEN:?Set private monitoring bearer token}
+    command: [uvicorn, sentinelapi.monitoring.app:app, --host, 0.0.0.0, --port, "8001", --no-access-log]
+    ports: ["127.0.0.1:8010:8001"]
+    volumes:
+      - collector-state:/collector-state:ro
+    networks: [database-network, monitoring-network]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -m, sentinelapi.monitoring.healthcheck]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+
   postgres:
     image: postgres:17.11-bookworm
     container_name: sentinelapi-postgres
@@ -34,6 +121,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-sentinelapi_owner}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your private environment}
       PYTHONUNBUFFERED: "1"
+      COLLECTOR_DB_PASSWORD: ${COLLECTOR_DB_PASSWORD:?Set private collector database password}
+      MONITORING_DB_PASSWORD: ${MONITORING_DB_PASSWORD:?Set private monitoring database password}
     networks:
       - database-network
     depends_on:
@@ -64,6 +153,7 @@ services:
     restart: unless-stopped
 
 networks:
+  monitoring-network:
   database-network:
     internal: true
   sentinelapi-network:
@@ -71,4 +161,6 @@ networks:
     name: sentinelapi-network
 
 volumes:
+  gateway-log-spool:
+  collector-state:
   sentinelapi-postgres-data:
