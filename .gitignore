@@ -3,6 +3,7 @@
 !.env.example
 
 .venv/
+.venv-step6/
 __pycache__/
 *.pyc
 

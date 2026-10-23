@@ -34,3 +34,18 @@ Git provenance: feature/api-traffic-collector, persistence 090d129, collector
 `git log -1 --format=%H -- docs/step-5-verification.md`. GitHub PR evidence remains
 pending until approved feature push and actual PR creation. Step 3.3 remains
 incomplete independently of the verified Step 5 collection path.
+
+## Step 6 — 2026-10-23 (partial; live verification pending)
+
+- Branch: feature/rule-based-threat-detection, base Step 5 merge 3c2be39.
+- Verified pure strategy checkpoint: 4cc8368; other implementation awaits database checks.
+- Architecture: docs/threat-detection-architecture.md.
+- Rule catalog: docs/detection-rule-catalog.md.
+- Exact executed tests, failures and blocked live acceptance: docs/step-6-verification.md.
+- Screenshot checklist/manual instructions: screenshots/06-threat-detection/README.md.
+- Screenshot status: 0/8 captured; available-surface inventory apps=[] / browsers=[].
+- No Step 6 real-traffic report, database alert proof or live evidence JOIN exists yet.
+- scripts/simulate_threat_traffic.py is a bounded local runner, not itself evidence.
+- Synthetic tests never substitute for WSO2 telemetry. Existing Step 5 reports are
+  historical proof only and were not overwritten or relabeled as Step 6.
+- Prepared PR text: docs/step-6-pr.md; no push or remote PR. No merge approval given.
