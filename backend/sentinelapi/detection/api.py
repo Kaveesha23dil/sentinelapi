@@ -11,7 +11,7 @@ from pydantic import BaseModel, ConfigDict, model_validator
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from sentinelapi.db.models import AlertEvidence, AuditLog, DetectionRule, SecurityAlert
+from sentinelapi.db.models import AlertEvidence, AuditLog, DetectionRule, SecurityAlert, TrafficEvent
 from .rules import configuration
 
 router = APIRouter(prefix='/api/v1/security')
@@ -48,6 +48,16 @@ def principal(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)
 def require(role, allowed):
     if role not in allowed:
         raise HTTPException(403, 'Insufficient role')
+
+
+@router.get('/session')
+def current_session(role=Depends(principal)):
+    capabilities = ['security:read']
+    if role in {'analyst', 'admin'}:
+        capabilities.append('alerts:update')
+    if role == 'admin':
+        capabilities.append('rules:update')
+    return {'role': role, 'capabilities': capabilities}
 
 
 class AlertPatch(BaseModel):
@@ -123,9 +133,34 @@ def detail(alert_id: UUID, role=Depends(principal), db: Session = Depends(sessio
     evidence = db.scalars(select(AlertEvidence).where(AlertEvidence.alert_id == alert_id)
                           .order_by(AlertEvidence.id).limit(100))
     # Never expose arbitrary legacy JSON, raw routes, request data or headers.
-    return alert_view(row) | {'evidence': [{'id': item.id, 'event_id': item.event_id,
+    return alert_view(row) | {'title': row.title if row.incident_fingerprint else 'Legacy demonstration alert',
+        'evidence': [{'id': item.id, 'event_id': item.event_id,
         'request_count': item.details.get('request_count') if
         isinstance(item.details.get('request_count'), int) else None} for item in evidence]}
+
+
+@router.get('/alerts/{alert_id}/events')
+def related_events(alert_id: UUID, role=Depends(principal), db: Session = Depends(session)):
+    if db.get(SecurityAlert, alert_id) is None:
+        raise HTTPException(404, 'Alert not found')
+    rows = db.execute(select(TrafficEvent.event_id, TrafficEvent.timestamp, TrafficEvent.http_method,
+        TrafficEvent.endpoint, TrafficEvent.status_code).where(TrafficEvent.event_id.in_(
+            select(AlertEvidence.event_id).where(AlertEvidence.alert_id == alert_id)))
+        .order_by(TrafficEvent.timestamp.desc(), TrafficEvent.event_id).limit(100))
+    return {'events': [dict(r._mapping) for r in rows], 'limit': 100}
+
+
+@router.get('/alerts/{alert_id}/history')
+def alert_history(alert_id: UUID, role=Depends(principal), db: Session = Depends(session)):
+    if db.get(SecurityAlert, alert_id) is None:
+        raise HTTPException(404, 'Alert not found')
+    rows = db.execute(select(AuditLog.id, AuditLog.timestamp, AuditLog.action, AuditLog.metadata_)
+        .where(AuditLog.entity_type == 'security_alert', AuditLog.entity_id == str(alert_id))
+        .order_by(AuditLog.timestamp.desc(), AuditLog.id).limit(100))
+    return {'history': [{'id': identity, 'timestamp': timestamp, 'action': 'alert.status',
+        'from': changes.get('from') if changes.get('from') in TRANSITIONS else None,
+        'to': changes.get('to') if changes.get('to') in TRANSITIONS else None}
+        for identity, timestamp, action, changes in rows if action == 'alert.status']}
 
 
 @router.patch('/alerts/{alert_id}')
