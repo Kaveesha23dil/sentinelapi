@@ -131,3 +131,7 @@ def health(db: Session = Depends(session)):
     if not fresh:
         return JSONResponse(status_code=503, content={'database': 'available', 'collector': 'stale-or-unavailable'})
     return {'database': 'available', 'collector': 'healthy'}
+
+
+from sentinelapi.detection.api import router as security_router
+app.include_router(security_router)

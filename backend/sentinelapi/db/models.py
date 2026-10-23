@@ -93,12 +93,20 @@ class SecurityAlert(Identity, Base):
     description: Mapped[str] = mapped_column(Text)
     first_detected_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     last_detected_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    incident_fingerprint: Mapped[str | None] = mapped_column(String(64), unique=True)
+    rule_version: Mapped[int | None] = mapped_column(Integer)
+    window_start: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    window_end: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    measured_value: Mapped[Decimal | None] = mapped_column(Numeric(20, 6))
+    threshold: Mapped[Decimal | None] = mapped_column(Numeric(20, 6))
     evidence: Mapped[list['AlertEvidence']] = relationship(back_populates='alert', passive_deletes=True)
     __table_args__ = (
         CheckConstraint("severity IN ('low','medium','high','critical')", name='severity'),
         CheckConstraint("status IN ('open','investigating','resolved','dismissed')", name='status'),
         CheckConstraint('risk_score BETWEEN 0 AND 100', name='risk_range'),
         CheckConstraint('last_detected_at >= first_detected_at', name='detection_order'),
+        CheckConstraint('window_end > window_start', name='window_order'),
+        CheckConstraint('rule_version > 0', name='rule_version_positive'),
         Index('ix_security_alerts_api_detected', 'api_service_id', 'last_detected_at'),
         Index('ix_security_alerts_status_severity', 'status', 'severity'),
         Index('ix_security_alerts_rule_id', 'rule_id'))
@@ -126,3 +134,9 @@ class AuditLog(Identity, Base):
     metadata_: Mapped[dict] = mapped_column('metadata', JSONB)
     __table_args__ = (CheckConstraint("jsonb_typeof(metadata) = 'object'", name='metadata_object'),
                       Index('ix_audit_logs_entity', 'entity_type', 'entity_id'))
+
+
+class DetectionCheckpoint(Base):
+    __tablename__ = 'detection_checkpoints'
+    name: Mapped[str] = mapped_column(String(64), primary_key=True)
+    watermark: Mapped[datetime] = mapped_column(DateTime(timezone=True))

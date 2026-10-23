@@ -43,7 +43,7 @@ def test_alert_time_order():
 
 
 def test_metadata_name_and_all_tables():
-    assert len(Base.metadata.tables) == 7
+    assert len(Base.metadata.tables) == 8
     assert 'metadata' in AuditLog.__table__.c
     assert AuditLog.metadata is Base.metadata
 
