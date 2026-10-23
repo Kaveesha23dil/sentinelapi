@@ -1,0 +1,39 @@
+# Explicit opt-in overlay. Does not replace existing persistent services.
+# Provision scoped roles and apply migrations before starting these new services.
+services:
+  detector:
+    build:
+      context: .
+      dockerfile: collector/Dockerfile
+    image: sentinelapi/threat-detection:local
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: ${POSTGRES_DB:-sentinelapi}
+      POSTGRES_USER: sentinelapi_detector
+      POSTGRES_PASSWORD: ${DETECTOR_DB_PASSWORD:?Set private detector database password}
+    command: [python, -m, sentinelapi.detection.worker]
+    networks: [database-network]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+
+  security-api:
+    image: sentinelapi/threat-detection:local
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: ${POSTGRES_DB:-sentinelapi}
+      POSTGRES_USER: sentinelapi_security
+      POSTGRES_PASSWORD: ${SECURITY_DB_PASSWORD:?Set private security API database password}
+      SECURITY_READER_TOKEN: ${SECURITY_READER_TOKEN:?Set private reader token}
+      SECURITY_ANALYST_TOKEN: ${SECURITY_ANALYST_TOKEN:?Set private analyst token}
+      SECURITY_ADMIN_TOKEN: ${SECURITY_ADMIN_TOKEN:?Set private admin token}
+    command: [uvicorn, sentinelapi.monitoring.app:app, --host, 0.0.0.0, --port, "8002", --no-access-log]
+    ports: ["127.0.0.1:8020:8002"]
+    networks: [database-network, monitoring-network]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped

@@ -152,3 +152,35 @@ Computer-use inventory had no apps/browsers: 0/8 screenshots, all pending manual
 Final review: added and executed a bounded busy-lock retry test for the end-to-end verifier; host suite now 23 passed in 0.049 seconds. Runtime snapshot at 10:51:49 UTC matched 21 source completions, 21 PostgreSQL rows and 21 monitoring events, with 200:11 / 201:1 / 401:6 / 404:3. PostgreSQL, collector, monitoring and DemoCommerce healthy; WSO2 running with no configured Docker healthcheck. PostgreSQL host binding remained null. Later authenticated monitoring health and Compose validation passed. No screenshot files appeared; all captures remain pending.
 
 Documentation QA repaired legacy Windows-1252 bytes in the journal to valid UTF-8 while preserving valid existing UTF-8 text; trimmed a trailing blank line from the verification document.
+
+## 2026-10-23 — Step 6 rule-based detection (partial)
+
+Started clean on feature/rule-based-threat-detection at Step 5 merge 3c2be39.
+Fetched origin successfully; main base unchanged. The explicit Step 6 request
+supersedes the stale milestone marker in AGENTS.md. Inspected collector/schema
+and historical genuine telemetry reports; did not treat synthetic fixtures as
+live traffic. Docker is unavailable here, so current ingestion/database state and
+live alert creation remain unverified. No persistent service or data changed.
+
+Implemented five deterministic strategies, strict config, sliding UTC windows,
+verified-client guards, explicit route/auth evidence guards and baseline readiness.
+Committed independently verified pure rules/tests as 4cc8368. Additive migration,
+incident persistence/evidence, bounded async worker/checkpoints, scoped role
+provisioning, six role-protected management routes and safe local simulation are
+implemented in the working tree pending PostgreSQL verification. Only API error
+rate is eligible for live use; four other rules remain fixture-only/disabled.
+
+Final supported-host suite: 89 passed + four subtests; collector compatible subset:
+18 passed, two deselected after their actual Windows os.O_DIRECTORY failures;
+DemoCommerce regressions: 12 passed. Final disjoint passing count 119, plus four
+subtests. Expanded run before the added migration test: 106 passed, two collector
+failures. PostgreSQL/monitoring integration: 27 collected, NOT executed. Compile
+and whitespace checks passed. See step-6-verification.md for exact commands,
+initial failures, environment recovery and limitations. No invented DB results.
+
+Screenshot inventory returned no apps/browsers. 0/8 captured; exact manual Windows
+instructions and checklist saved under screenshots/06-threat-detection. Architecture,
+rule catalog, acceptance procedure and unpublished PR text prepared. No push/PR/merge.
+Step 6 is incomplete until real PostgreSQL, grants and WSO2 alert proof pass; no
+Step 7 implementation started. Documentation commit is discoverable with
+`git log -1 --format=%H -- docs/step-6-verification.md`.

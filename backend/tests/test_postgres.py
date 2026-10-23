@@ -54,7 +54,7 @@ def test_connection_utc_and_indexes(engine):
         assert connection.scalar(text('SHOW timezone')) == 'UTC'
     inspector = inspect(engine)
     assert set(inspector.get_table_names()) == {'api_services', 'traffic_events', 'traffic_aggregates',
-        'detection_rules', 'security_alerts', 'alert_evidence', 'audit_logs', 'alembic_version'}
+        'detection_rules', 'security_alerts', 'alert_evidence', 'audit_logs', 'alembic_version', 'detection_checkpoints'}
     assert 'ix_traffic_events_api_timestamp' in {x['name'] for x in inspector.get_indexes('traffic_events')}
 
 
