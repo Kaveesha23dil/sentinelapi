@@ -332,3 +332,18 @@ Local checkpoints, no push or merge:
 
 Prepared PR: docs/step-8-pr.md. Explicit approval is required before pushing only
 feature/security-dashboard; separate approval is required before merge.
+
+### 2026-10-23 — Premium dashboard visual refresh
+
+User-requested dashboard styling update inspired by the supplied pharmacy dashboard reference. Applied a mint workspace, dark teal active navigation, rounded translucent panels, six pastel metric cards, and coordinated chart colors. Retained existing API security terminology, data semantics, navigation, session handling, filters, and responsive layouts. Shared CSS surfaces cover all seven screens; no backend or persistent Docker changes.
+
+Validation:
+- `npm run build` (frontend): passed production compilation and bundling.
+- `npm run test` (frontend): 3 files, 32 tests passed.
+- `npm run lint` (frontend): passed.
+- `npm run test:browser` (frontend, installed browser path configured): all 5 tests passed, including seven-screen WCAG A/AA scans, mobile overflow, filters, pagination, session updates, and demo isolation.
+- Real browser screenshots refreshed under `screenshots/08-security-dashboard/` (01–08). Demo fixtures are visibly labeled; screenshots contain no credentials.
+
+Issues resolved: sandbox browser initially could not access loopback and used a missing sandbox-local browser cache. Used the existing installed Chromium outside the sandbox for verification. Accessibility scans identified inherited low-contrast labels and select backgrounds; corrected these and reran the full browser suite successfully.
+
+Commit association: working tree based on `8e530d9`; changes left uncommitted for review. No push performed.

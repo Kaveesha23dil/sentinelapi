@@ -15,13 +15,13 @@ import {
 } from 'recharts'
 
 const tooltip = {
-  background: '#101b2c',
-  border: '1px solid #304059',
+  background: '#ffffff',
+  border: '1px solid #d4e5dc',
   borderRadius: 8,
-  color: '#f8fafc',
+  color: '#173e35',
   fontSize: 12,
 }
-const axis = { fill: '#94a3b8', fontSize: 11 }
+const axis = { fill: '#5a7369', fontSize: 11 }
 export function TrafficChart({ points }: { points: { timestamp: string; requests: number }[] }) {
   return (
     <div
@@ -33,11 +33,11 @@ export function TrafficChart({ points }: { points: { timestamp: string; requests
         <AreaChart data={points} margin={{ top: 12, right: 16, bottom: 4, left: -20 }}>
           <defs>
             <linearGradient id="traffic-fill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.3} />
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity={0.01} />
+              <stop offset="0%" stopColor="#6cb6a3" stopOpacity={0.3} />
+              <stop offset="100%" stopColor="#6cb6a3" stopOpacity={0.01} />
             </linearGradient>
           </defs>
-          <CartesianGrid stroke="#253147" vertical={false} strokeDasharray="3 4" />
+          <CartesianGrid stroke="#e2ede7" vertical={false} strokeDasharray="3 4" />
           <XAxis
             dataKey="timestamp"
             tick={axis}
@@ -63,7 +63,7 @@ export function TrafficChart({ points }: { points: { timestamp: string; requests
             type="linear"
             dataKey="requests"
             name="Requests"
-            stroke="#60a5fa"
+            stroke="#328674"
             strokeWidth={2}
             fill="url(#traffic-fill)"
             dot={false}
@@ -77,10 +77,10 @@ export function TrafficChart({ points }: { points: { timestamp: string; requests
 }
 export function StatusChart({ breakdown }: { breakdown: Record<string, number> }) {
   const groups = [
-    { name: '2xx · Successful', color: '#3b82f6', value: 0 },
-    { name: '4xx · Client error', color: '#f59e0b', value: 0 },
-    { name: '5xx · Server error', color: '#ef4444', value: 0 },
-    { name: 'Other status', color: '#94a3b8', value: 0 },
+    { name: '2xx · Successful', color: '#6cb6a3', value: 0 },
+    { name: '4xx · Client error', color: '#ddbc72', value: 0 },
+    { name: '5xx · Server error', color: '#e69eab', value: 0 },
+    { name: 'Other status', color: '#5a7369', value: 0 },
   ]
   Object.entries(breakdown).forEach(([code, n]) => {
     groups[
@@ -99,10 +99,11 @@ export function StatusChart({ breakdown }: { breakdown: Record<string, number> }
           <PieChart>
             <Pie
               data={groups.filter((g) => g.value > 0)}
-              innerRadius="70%"
+              innerRadius="72%"
               outerRadius="94%"
               dataKey="value"
-              paddingAngle={3}
+              paddingAngle={5}
+              cornerRadius={8}
               stroke="none"
               isAnimationActive={false}
             >
@@ -149,13 +150,13 @@ export function ComparisonChart({
     >
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ left: -25, right: 8, top: 12 }}>
-          <CartesianGrid vertical={false} stroke="#253147" />
+          <CartesianGrid vertical={false} stroke="#e2ede7" />
           <XAxis dataKey="name" tick={axis} axisLine={false} tickLine={false} />
           <YAxis domain={[0, 1]} tick={axis} axisLine={false} tickLine={false} />
           <Tooltip contentStyle={tooltip} />
           <Legend />
-          <Bar dataKey="ML" fill="#3b82f6" radius={[3, 3, 0, 0]} isAnimationActive={false} />
-          <Bar dataKey="Rules" fill="#94a3b8" radius={[3, 3, 0, 0]} isAnimationActive={false} />
+          <Bar dataKey="ML" fill="#6cb6a3" radius={[3, 3, 0, 0]} isAnimationActive={false} />
+          <Bar dataKey="Rules" fill="#5a7369" radius={[3, 3, 0, 0]} isAnimationActive={false} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -178,14 +179,14 @@ export function ScoreChart({ scores }: { scores: number[] }) {
     >
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data}>
-          <CartesianGrid vertical={false} stroke="#253147" />
+          <CartesianGrid vertical={false} stroke="#e2ede7" />
           <XAxis dataKey="score" tick={axis} />
           <YAxis allowDecimals={false} tick={axis} />
           <Tooltip contentStyle={tooltip} />
           <Bar
             dataKey="count"
             name="Anomaly windows"
-            fill="#a78bfa"
+            fill="#aaa0d8"
             radius={[4, 4, 0, 0]}
             isAnimationActive={false}
           />
