@@ -1,0 +1,1 @@
+export const DEMO_NOW = '2026-10-23T12:00:00.000Z'

@@ -27,3 +27,8 @@ pgdata/
 *.dump
 *.backup
 .runtime/
+
+# Dashboard generated output; keep only reviewed test summaries/screenshots.
+frontend/test-results/
+frontend/playwright-report/
+*.tsbuildinfo
