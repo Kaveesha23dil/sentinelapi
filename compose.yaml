@@ -62,6 +62,9 @@ services:
     command: [python, -m, sentinelapi.db.verify, prepare]
 
   monitoring:
+    build:
+      context: .
+      dockerfile: collector/Dockerfile
     image: sentinelapi/collector:local
     container_name: sentinelapi-monitoring
     environment:
@@ -123,6 +126,9 @@ services:
       PYTHONUNBUFFERED: "1"
       COLLECTOR_DB_PASSWORD: ${COLLECTOR_DB_PASSWORD:?Set private collector database password}
       MONITORING_DB_PASSWORD: ${MONITORING_DB_PASSWORD:?Set private monitoring database password}
+      # Owner-run detection provisioning reads these without exposing CLI values.
+      DETECTOR_DB_PASSWORD: ${DETECTOR_DB_PASSWORD:-}
+      SECURITY_DB_PASSWORD: ${SECURITY_DB_PASSWORD:-}
     networks:
       - database-network
     depends_on:

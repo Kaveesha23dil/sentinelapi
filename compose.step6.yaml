@@ -12,6 +12,11 @@ services:
       POSTGRES_USER: sentinelapi_detector
       POSTGRES_PASSWORD: ${DETECTOR_DB_PASSWORD:?Set private detector database password}
     command: [python, -m, sentinelapi.detection.worker]
+    init: true
+    stop_grace_period: 60s
+    depends_on:
+      postgres:
+        condition: service_healthy
     networks: [database-network]
     read_only: true
     tmpfs: [/tmp]

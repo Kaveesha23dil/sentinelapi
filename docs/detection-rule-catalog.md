@@ -6,7 +6,7 @@ Windows are UTC `(end-duration, end]`. All fixture results are offline only.
 | Rule | Default condition | Grouping | Live eligibility |
 | --- | --- | --- | --- |
 | request_flood | >100 requests /60s | verified client + API | Pending verified identity adapter |
-| error_rate | >=20 requests /300s and errors/requests >0.5 | API | Supported by stored BASIC fields; Step 6 live verification pending |
+| error_rate | >=20 requests /300s and errors/requests >0.5 | API | Controlled local alert/evidence verified; see detection-runtime-repair.md |
 | enumeration | >=15 distinct trusted unknown routes /120s | verified client + API | Pending identity and route verdicts; 404/unmapped is insufficient |
 | auth_failures | >=10 confirmed failures /120s | verified client + API | Pending explicit auth-failure evidence; 401 alone is insufficient |
 | unusual_activity | volume / established average >3 /300s | verified client + API | Pending identity and baseline adapter/materialization |

@@ -1,0 +1,173 @@
+{
+  "classification": "controlled-local-wso2-rule-validation",
+  "observed_at": "2026-10-24T07:55:05.082999+00:00",
+  "source_base": "4365fa1",
+  "implementation_commit": "3d4bc69",
+  "revision": "b7d000000001",
+  "original_events": 75,
+  "original_events_preserved": true,
+  "gateway_events": 99,
+  "status_counts": {
+    "429": 9,
+    "404": 23,
+    "401": 26,
+    "201": 1,
+    "200": 40
+  },
+  "rules": [
+    {
+      "name": "auth_failures",
+      "enabled": false
+    },
+    {
+      "name": "enumeration",
+      "enabled": false
+    },
+    {
+      "name": "error_rate",
+      "enabled": true
+    },
+    {
+      "name": "request_flood",
+      "enabled": false
+    },
+    {
+      "name": "unusual_activity",
+      "enabled": false
+    }
+  ],
+  "alerts": [
+    {
+      "title": "Observed API error-rate spike",
+      "severity": "medium",
+      "risk_score": 50.0,
+      "status": "open",
+      "first_detected_at": "2026-10-24T07:52:41.065997+00:00",
+      "window_start": "2026-10-24T07:45:38.137+00:00",
+      "window_end": "2026-10-24T07:50:38.137+00:00",
+      "measured_value": 0.8,
+      "threshold": 0.5,
+      "evidence_count": 16,
+      "all_evidence_gateway": true,
+      "evidence_unique": true
+    }
+  ],
+  "checkpoint_progress_after_restart": true,
+  "detector_stop_exit_code": 0,
+  "alert_count_before_restart": 1,
+  "alert_count_after_restart": 1,
+  "docker_states": {
+    "sentinelapi-monitoring": "running healthy",
+    "sentinelapi-collector": "running healthy",
+    "sentinelapi-detector-1": "running"
+  },
+  "running_application_matches_source": {
+    "sentinelapi/detection/worker.py": true,
+    "sentinelapi/detection/provision.py": true,
+    "sentinelapi/monitoring/healthcheck.py": true
+  },
+  "traffic": {
+    "provenance": "controlled-local-wso2-validation",
+    "started_at": "2026-10-24T07:49:18.637089+00:00",
+    "completed_at": "2026-10-24T07:50:56.476292+00:00",
+    "request_count": 24,
+    "status_counts": {
+      "200": 4,
+      "404": 20
+    },
+    "application": "SentinelAPITestClient",
+    "application_policy": "Unlimited",
+    "token_validity_seconds": 300,
+    "tls_certificate_verification": true,
+    "rate_policy_modified": false
+  },
+  "correlation": {
+    "matching_alert_count": 1,
+    "issued_requests": 24,
+    "unique_source_completions": 24,
+    "source_status_counts": {
+      "200": 4,
+      "404": 20
+    },
+    "persisted_matches": 24,
+    "linked_controlled_events": 16,
+    "all_issued_responses_correlated": true,
+    "all_source_events_persisted": true
+  },
+  "api_checks": {
+    "monitoring": [
+      {
+        "path": "/api/v1/monitoring/health",
+        "authenticated": true,
+        "status": 200
+      },
+      {
+        "path": "/api/v1/monitoring/session",
+        "authenticated": true,
+        "status": 200
+      },
+      {
+        "path": "/api/v1/monitoring/events?status_code=999",
+        "authenticated": true,
+        "status": 422
+      },
+      {
+        "path": "/api/v1/monitoring/health",
+        "authenticated": false,
+        "status": 401
+      }
+    ],
+    "security": {
+      "http_status": 200,
+      "total": 1,
+      "alerts": [
+        {
+          "severity": "medium",
+          "risk_score": 50.0,
+          "status": "open",
+          "first_detected_at": "2026-10-24T07:52:41.065997+00:00",
+          "origin": "detector",
+          "evidence_count": 16
+        }
+      ],
+      "no_token_status": 401
+    }
+  },
+  "tests_junit": {
+    "offline": {
+      "tests": 126,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "database": {
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "collector": {
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "offline_console": {
+    "passed": 122,
+    "passing_subtests": 4,
+    "failed": 0,
+    "skipped": 0
+  },
+  "test_groups_overlap": true,
+  "existing_passwords_rotated": false,
+  "postgres_wso2_collector_recreated": false,
+  "stateless_monitoring_updated": true,
+  "screenshot_06": "genuine query verified; manual PNG capture pending",
+  "limitations": [
+    "controlled behavior is not a confirmed attack",
+    "other rule adapters disabled",
+    "no live ML or full dashboard rendering acceptance",
+    "bridge must continue running"
+  ]
+}

@@ -13,6 +13,9 @@ build/
 
 *.log
 screenshots/private/
+# Unreviewed originals can contain tokens, raw client data or personal paths.
+# Publish only reviewed, byte-identical copies in screenshots/final-blog/.
+screenshots/*.png
 
 .DS_Store
 .vscode/
@@ -26,6 +29,7 @@ coverage/
 pgdata/
 *.dump
 *.backup
+backups/
 .runtime/
 
 # Dashboard generated output; keep only reviewed test summaries/screenshots.

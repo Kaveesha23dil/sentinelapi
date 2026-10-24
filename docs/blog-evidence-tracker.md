@@ -90,3 +90,7 @@ incomplete independently of the verified Step 5 collection path.
   `git log -1 --format=%H -- docs/step-8-verification.md`.
 - Architecture: docs/dashboard-architecture.md. Reproduction/limitations:
   docs/step-8-verification.md. Prepared local PR: docs/step-8-pr.md. No push/merge yet.
+
+## Step 10 finalization index
+
+The 2026-10-24 audit and publication decisions are in [final-evidence-inventory.md](final-evidence-inventory.md). All current application screenshots are real captures of explicit demo fixtures; ML plots are controlled synthetic evaluation. Historical live telemetry is JSON evidence, not a live screenshot. Step 9 evidence remains on its unmerged branch. No blog or video is published/recorded. Current executed counts and deployment blockers are in [final-verification.md](final-verification.md).

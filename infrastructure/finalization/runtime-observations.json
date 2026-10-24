@@ -1,0 +1,21 @@
+[
+  {
+    "check": "overview",
+    "status": 200,
+    "recent_request_count": 0
+  },
+  {
+    "check": "health",
+    "status": 503,
+    "database": "available",
+    "collector": "stale-or-unavailable"
+  },
+  {
+    "check": "session",
+    "status": 404
+  },
+  {
+    "check": "invalid-status-filter",
+    "status": 200
+  }
+]

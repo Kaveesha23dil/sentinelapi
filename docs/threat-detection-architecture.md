@@ -106,7 +106,8 @@ binds only 127.0.0.1:8020. No runtime deployment was performed. Before first use
    Extend the owner tools environment explicitly; these values must not enter Git.
 4. Run `python -m sentinelapi.detection.provision` with owner connectivity and those
    two passwords. Review actual grants; never use owner credentials for runtime.
-   This explicit provisioning command sets passwords for its two named roles.
+   Missing roles receive configured strong passwords; existing role passwords are
+   preserved unless --rotate-existing-passwords is explicitly requested.
 5. Start ONLY new services with
    `docker compose -f compose.yaml -f compose.step6.yaml up -d --no-deps detector security-api`.
    Do not run broad `up`, `down`, `down -v` or force recreation of persistent services.
@@ -118,6 +119,12 @@ INSERT audit only. Existing monitoring/collector roles are unchanged. Provisioni
 Compose validation and real permission checks still require a Docker-equipped host.
 
 ## Limitations and next milestone
+
+Subsequent controlled runtime acceptance is documented in
+[detection-runtime-repair.md](detection-runtime-repair.md): scoped roles/services
+started, original telemetry preserved, and an actual gateway error-rate alert
+with 16 unique evidence links verified. Earlier statements above describe the
+original Step 6 implementation/verification boundary, not current runtime status.
 
 Error ratios also rise during backend failures, deployments or intended 404 tests;
 an alert is an explainable observation, not proof of malicious intent. Gateway

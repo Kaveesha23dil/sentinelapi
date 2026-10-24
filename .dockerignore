@@ -4,6 +4,9 @@
 **/.env
 **/.env.*
 .runtime
+backups
+*.dump
+*.backup
 **/.venv
 **/__pycache__
 **/.pytest_cache

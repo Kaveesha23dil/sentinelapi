@@ -1,0 +1,152 @@
+[
+  {
+    "path": "infrastructure/ml/evaluation/anomaly_score_distribution.png",
+    "exists": true,
+    "width": 700,
+    "height": 400,
+    "sha256": "c07e01e45e5faaa2e8c34386ddfdec1731453223918fa713e2b90ec99774c714",
+    "provenance": "synthetic-controlled chart",
+    "visually_reviewed": true,
+    "last_committed_revision": "321fbaa0d06cdab97634e570b1ccd356aa832b93"
+  },
+  {
+    "path": "infrastructure/ml/evaluation/confusion_matrix.png",
+    "exists": true,
+    "width": 600,
+    "height": 500,
+    "sha256": "d33cf34feebf0877db05d4cecb76d0ba998431ffe3557a5fdd7332c9fdd86741",
+    "provenance": "synthetic-controlled chart",
+    "visually_reviewed": true,
+    "last_committed_revision": "321fbaa0d06cdab97634e570b1ccd356aa832b93"
+  },
+  {
+    "path": "infrastructure/ml/evaluation/model_comparison.png",
+    "exists": true,
+    "width": 700,
+    "height": 400,
+    "sha256": "b0c3505ce4d1ea4d0e4399e02f56638d194347f77da49aa53810c5258b281f1f",
+    "provenance": "synthetic-controlled chart",
+    "visually_reviewed": true,
+    "last_committed_revision": "321fbaa0d06cdab97634e570b1ccd356aa832b93"
+  },
+  {
+    "path": "screenshots/07-ml-anomaly-detection/03-confusion-matrix.png",
+    "exists": true,
+    "width": 600,
+    "height": 500,
+    "sha256": "d33cf34feebf0877db05d4cecb76d0ba998431ffe3557a5fdd7332c9fdd86741",
+    "provenance": "synthetic-controlled chart",
+    "visually_reviewed": true,
+    "last_committed_revision": "321fbaa0d06cdab97634e570b1ccd356aa832b93"
+  },
+  {
+    "path": "screenshots/07-ml-anomaly-detection/04-anomaly-score-distribution.png",
+    "exists": true,
+    "width": 700,
+    "height": 400,
+    "sha256": "c07e01e45e5faaa2e8c34386ddfdec1731453223918fa713e2b90ec99774c714",
+    "provenance": "synthetic-controlled chart",
+    "visually_reviewed": true,
+    "last_committed_revision": "321fbaa0d06cdab97634e570b1ccd356aa832b93"
+  },
+  {
+    "path": "screenshots/07-ml-anomaly-detection/05-model-comparison.png",
+    "exists": true,
+    "width": 700,
+    "height": 400,
+    "sha256": "b0c3505ce4d1ea4d0e4399e02f56638d194347f77da49aa53810c5258b281f1f",
+    "provenance": "synthetic-controlled chart",
+    "visually_reviewed": true,
+    "last_committed_revision": "321fbaa0d06cdab97634e570b1ccd356aa832b93"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/01-dashboard-overview.png",
+    "exists": true,
+    "width": 1512,
+    "height": 1670,
+    "sha256": "689c5fd2736935ed18e4696bd0f693b450ddd888c4baa734510fc262fbc0d10a",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "04b3852abe18e0a2453d206b24f268ac93b7aaf8"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/02-api-traffic.png",
+    "exists": true,
+    "width": 1512,
+    "height": 1810,
+    "sha256": "49720bfca70bdb6d03c3d8d2f4bd646891bcf66fbace446d2d2cbabf0933eaf3",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "04b3852abe18e0a2453d206b24f268ac93b7aaf8"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/03-threat-alerts.png",
+    "exists": true,
+    "width": 1512,
+    "height": 1291,
+    "sha256": "f1acf5a6f583c1f73c69d8c5cfa9d8aed1ebde1ba4e3667bbd4f8296b626dd3e",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "97b42b6e537dff4053d1ccc809bec6e63b048975"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/04-incident-details.png",
+    "exists": true,
+    "width": 1512,
+    "height": 1641,
+    "sha256": "23da885c4928c160d8ec853fe1d59c24c10893324cfb0f262faadd4cbcab3d4f",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "04b3852abe18e0a2453d206b24f268ac93b7aaf8"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/05-detection-rules.png",
+    "exists": true,
+    "width": 1512,
+    "height": 1418,
+    "sha256": "27241023a2da3cc49ad60e60ad3ef52557b522c37511c8f0a3a69f230e8efae9",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "97b42b6e537dff4053d1ccc809bec6e63b048975"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/06-ml-monitoring.png",
+    "exists": true,
+    "width": 1512,
+    "height": 1818,
+    "sha256": "3779366c1f899fd5b252f42945965c42270c1b72e2f7f40a0132b89e99018830",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "04b3852abe18e0a2453d206b24f268ac93b7aaf8"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/07-api-services.png",
+    "exists": true,
+    "width": 1512,
+    "height": 1110,
+    "sha256": "5bb0c1045658bbe3cb22f71673d1b0ebb22db7ea38e62bef34f25fabd0c669bb",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "04b3852abe18e0a2453d206b24f268ac93b7aaf8"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/08-responsive-dashboard.png",
+    "exists": true,
+    "width": 390,
+    "height": 2945,
+    "sha256": "1f436e842859c64e71bec83c0578374370fe73fcc277d039189887bd31758a4e",
+    "provenance": "demo-fixture application capture",
+    "visually_reviewed": true,
+    "last_committed_revision": "04b3852abe18e0a2453d206b24f268ac93b7aaf8"
+  },
+  {
+    "path": "screenshots/08-security-dashboard/09-dashboard-test-results.png",
+    "exists": true,
+    "width": 1440,
+    "height": 1000,
+    "sha256": "dc06ddc45ffd7c3f999fc9c7c1e0be9285c269985d74ca2a9a36538817d48046",
+    "provenance": "historical browser test report",
+    "visually_reviewed": true,
+    "last_committed_revision": "227b518525264a0b0d189b1659f0622ac28de27d"
+  }
+]

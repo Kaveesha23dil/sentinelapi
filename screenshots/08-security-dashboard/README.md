@@ -1,5 +1,10 @@
 # Authentic Step 8 evidence
 
+Final audit update (2026-10-24): the seven-test Chromium suite refreshed real demo
+captures 01–08; only 02 changed bytes. Image 09 remains the historical five-pass
+report, not the current result. Full provenance and publication decisions:
+[final evidence inventory](../../docs/final-evidence-inventory.md).
+
 01–08 are real Chromium screenshots of the running React application. Each visibly
 says DEMO DATA; none proves live WSO2/PostgreSQL integration. 09 is the actual
 Playwright HTML report for the executed five-test run, captured in Chromium.
