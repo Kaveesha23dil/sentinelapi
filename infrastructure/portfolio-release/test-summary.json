@@ -1,0 +1,63 @@
+{
+  "source_base": "891a269",
+  "recorded_at": "2026-10-24T09:39:50.852456+00:00",
+  "pytest_junit": {
+    "host": {
+      "tests": 159,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "windows_collector": {
+      "tests": 20,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    "postgres": {
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "linux_collector": {
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "host_console_passed": 155,
+  "host_passing_subtests": 4,
+  "windows_collector_console_passed": 18,
+  "windows_collector_known_failures": [
+    "test_checkpoint_recovery_and_transport_gc",
+    "test_checkpoint_does_not_advance_on_write_failure"
+  ],
+  "frontend_unit": {
+    "passed": 36,
+    "failed": 0,
+    "skipped": 0
+  },
+  "frontend_lint": "passed",
+  "frontend_typecheck": "passed",
+  "frontend_build": "passed",
+  "browser": {
+    "startTime": "2026-10-24T09:18:08.224Z",
+    "duration": 31508.476000000002,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "ml_postgres": {
+    "collected": 2,
+    "executed": 0
+  },
+  "counts_overlap": true,
+  "browser_capture_directory": ".runtime/portfolio-release/browser-captures",
+  "existing_evidence_overwritten": false,
+  "live_ml_acceptance": "not established",
+  "live_dashboard_acceptance": "not established",
+  "benchmark": "not executed; no metrics claimed"
+}

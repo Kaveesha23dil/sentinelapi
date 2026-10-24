@@ -1,0 +1,61 @@
+{
+  "revision": "b7d000000001",
+  "gateway_events": 99,
+  "status_counts": {
+    "429": 9,
+    "404": 23,
+    "401": 26,
+    "201": 1,
+    "200": 40
+  },
+  "rules": [
+    {
+      "name": "auth_failures",
+      "enabled": false
+    },
+    {
+      "name": "enumeration",
+      "enabled": false
+    },
+    {
+      "name": "error_rate",
+      "enabled": true
+    },
+    {
+      "name": "request_flood",
+      "enabled": false
+    },
+    {
+      "name": "unusual_activity",
+      "enabled": false
+    }
+  ],
+  "ml_windows": 0,
+  "alerts": [
+    {
+      "title": "Observed API error-rate spike",
+      "severity": "medium",
+      "status": "open",
+      "risk_score": 50.0,
+      "first_detected_at": "2026-10-24T07:52:41.065997+00:00",
+      "evidence_count": 16
+    }
+  ],
+  "docker_states": {
+    "sentinelapi-wso2": "running",
+    "sentinelapi-democommerce": "running healthy",
+    "sentinelapi-postgres": "running healthy",
+    "sentinelapi-collector": "running healthy",
+    "sentinelapi-monitoring": "running healthy",
+    "sentinelapi-detector-1": "running",
+    "sentinelapi-security-api-1": "running"
+  },
+  "monitoring_probe": "monitoring_health state=healthy",
+  "detector_configuration": {
+    "database_role": "sentinelapi_detector",
+    "ml_artifact_configured": false
+  },
+  "checkpoint_progress_observed": true,
+  "observed_at": "2026-10-24T09:29:49.649657+00:00",
+  "scope": "read-only current observation; no fresh gateway workload or restart performed"
+}

@@ -1,0 +1,39 @@
+{
+  "monitoring": [
+    {
+      "path": "/api/v1/monitoring/health",
+      "authenticated": true,
+      "status": 200
+    },
+    {
+      "path": "/api/v1/monitoring/session",
+      "authenticated": true,
+      "status": 200
+    },
+    {
+      "path": "/api/v1/monitoring/events?status_code=999",
+      "authenticated": true,
+      "status": 422
+    },
+    {
+      "path": "/api/v1/monitoring/health",
+      "authenticated": false,
+      "status": 401
+    }
+  ],
+  "security": {
+    "http_status": 200,
+    "total": 1,
+    "alerts": [
+      {
+        "severity": "medium",
+        "risk_score": 50.0,
+        "status": "open",
+        "first_detected_at": "2026-10-24T07:52:41.065997+00:00",
+        "origin": "detector",
+        "evidence_count": 16
+      }
+    ],
+    "no_token_status": 401
+  }
+}

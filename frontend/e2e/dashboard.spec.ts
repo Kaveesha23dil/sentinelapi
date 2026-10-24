@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+const captureDirectory = process.env.SENTINEL_SCREENSHOT_DIR || '../screenshots/08-security-dashboard'
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Explore demo' }).click()
@@ -29,7 +30,7 @@ test('all screens, fixture labels, accessibility and authentic captures', async 
     await expect(page.getByText('DEMO DATA')).toBeVisible()
     await expect(page.getByRole('status', { name: 'Loading data' })).toHaveCount(0)
     await page.screenshot({
-      path: '../screenshots/08-security-dashboard/' + filename,
+      path: captureDirectory + '/' + filename,
       fullPage: true,
     })
     const result = await new AxeBuilder({ page })
@@ -52,7 +53,7 @@ test('filters, pagination, refresh and responsive layout', async ({ page }) => {
   await page.getByRole('link', { name: 'Overview', exact: true }).click()
   await expect(page.getByRole('heading', { name: 'Security overview' })).toBeVisible()
   await page.screenshot({
-    path: '../screenshots/08-security-dashboard/08-responsive-dashboard.png',
+    path: captureDirectory + '/08-responsive-dashboard.png',
     fullPage: true,
   })
   const overflow = await page.evaluate(() => ({

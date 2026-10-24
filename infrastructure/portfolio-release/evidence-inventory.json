@@ -1,0 +1,560 @@
+[
+  {
+    "original": "screenshots/01dashboardoverview.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1897,
+    "height": 865,
+    "sha256": "1800e410e36b119dc1cfe3ed080beed42bc785f7489987b3e941bc376c3b7a29",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "demo-fixture",
+    "decision": "Visible DEMO DATA; illustrative counts, not live metrics.",
+    "published_copy": "screenshots/final-blog/07-dashboard-overview-demo.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/01fastapiswagger.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1901,
+    "height": 867,
+    "sha256": "6174476b0f12a19027c73dfcf4a7d14a663956b7f3494baa607f12a1516c2581",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "application-documentation",
+    "decision": "Actual Swagger operation list; no execution result implied.",
+    "published_copy": "screenshots/final-blog/01-democommerce-openapi.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/01wso2apipublisher.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1897,
+    "height": 866,
+    "sha256": "e8dc74a87f0d0cef73e87b29e89e1c7a5e38637c9739b857f48440192c3e32da",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-configuration",
+    "decision": "PUBLISHED API, OAuth2, actual context; generic admin label, no secret.",
+    "published_copy": "screenshots/final-blog/02-wso2-publisher.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/02aoauthunauthorized.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 947,
+    "height": 350,
+    "sha256": "2a717a23cfe8d62d9130af146ea11e71a988ce41f716ff63a4fe2221fbc5c207",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-http",
+    "decision": "Exclude: personal workspace path and full correlation reference; curl uses TLS bypass. HTTP 401 is visible.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/02apitraffic.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1895,
+    "height": 862,
+    "sha256": "6927f217cefef99e992a8da9992e4fda7de2f968be35be7ac27bce0eac6cb834",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "demo-fixture",
+    "decision": "Visible DEMO DATA and fixture event references.",
+    "published_copy": "screenshots/final-blog/08-api-traffic-demo.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/02boauthauthorized.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1897,
+    "height": 862,
+    "sha256": "08fdd24e3d6f8836d4ce548fbc9737fd0cd6ad6ccfa347dee96ef389ca145e4f",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-http",
+    "decision": "EXCLUDE: visible Authorization bearer token. Do not publish or transcribe; revoke affected token and review exposure.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/02createorderresponse.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1892,
+    "height": 855,
+    "sha256": "31320508be74dd65451c817f4ef304d4f200e0884949b1dad406db71aad7ae42",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "openapi-example",
+    "decision": "Safe but omit: schema Example Value, not an executed HTTP 201 response.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/02wso2startup.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1072,
+    "height": 387,
+    "sha256": "4ca1fb4bdb7382487102475a14c940075b944f7ede4e4e13fb42325379e9410a",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-runtime",
+    "decision": "Exclude: personal workspace paths; startup/redirect transcript is not API routing proof.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03apiintegration04dockercontainers.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1526,
+    "height": 106,
+    "sha256": "a03bf187b0835cb2f90c3cf9250ea8360daf161261c2d7bf008ceaede09f9fa2",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-runtime",
+    "decision": "Safe but omit: narrow WSO2 container row, not whole-stack readiness; CPU is an instantaneous display.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03aratelimitpolicy.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1901,
+    "height": 871,
+    "sha256": "c63cb0a6c36f25dbc42dba7f5e47dd1f84b505f634dda1d59dbaf5ec14ad2c91",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-configuration",
+    "decision": "Safe alternate policy catalog; omitted to avoid redundant figures.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03bratelimitenforcemen3t.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 572,
+    "height": 387,
+    "sha256": "3fea057d12c6fd19705030d810b3242ab069d7fbd62661ae43d8a6d9b4f0acc8",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-http",
+    "decision": "Exclude: personal workspace path. Shows 10 HTTP 200 then 5 HTTP 429; not a timestamped benchmark.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03bratelimitenforcement.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1022,
+    "height": 692,
+    "sha256": "3b848be6c9769bb58a5cb3f7b834f005b7587657feb4a09bfa01b43403758bda",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-http",
+    "decision": "Exclude: personal workspace path and TLS-bypass command. Shows 11 HTTP 200 then 4 HTTP 429; separate capture, not proof of exact quota timing.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03pytestresults.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 921,
+    "height": 436,
+    "sha256": "18d04287e0daa07c9fe2a8a58ee60f5a62d65be46612f69e21d3d37cc199592f",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-tests",
+    "decision": "Exclude: personal paths; 12 individual passes visible, not the current release suite summary.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03security03unauthorizedrequest.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 922,
+    "height": 255,
+    "sha256": "83c177e434f06fa557b5cb54afb204283bb5efbe61fc9f45d540d725efd1f108",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-failure",
+    "decision": "Exclude: personal path/correlation reference; wrong context returns 404, not authentication rejection.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03security05ratelimitpolicy.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1437,
+    "height": 691,
+    "sha256": "255320c4275ae44fc3216d33c7ba8484cf27bd2b1810b9f29030ee356769c4c8",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-configuration",
+    "decision": "Safe alternate 10/20/50-per-minute catalog, not enforcement evidence; redundant.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/03threatalerts.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1900,
+    "height": 866,
+    "sha256": "6064a8a695e4e3433930878f9c444c69bf2bc78a65d149dd0e79390181b0f927",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "demo-fixture",
+    "decision": "Visible DEMO DATA; fixture high severity is not the actual medium live alert.",
+    "published_copy": "screenshots/final-blog/09-alert-queue-demo.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/04incidentdetails.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1900,
+    "height": 866,
+    "sha256": "4e9e013d36d08de18a9a808ad554d98188e2d180f5e2c8cb85757d0dd78cc310",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "demo-fixture",
+    "decision": "Original filename is misleading: actual screen is Detection rules, not Incident details.",
+    "published_copy": "screenshots/final-blog/10-detection-rules-demo.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/04wso2apitrafficlogs.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1887,
+    "height": 947,
+    "sha256": "69f2f06cb1af1392b90121ef7fdd7d856f6e12b23bb255df16717943a33d33d3",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-raw-log",
+    "decision": "EXCLUDE: raw source addresses, correlation IDs and personal workspace path. No edited substitute provided.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/05postgresqltelemet5ryevents.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1146,
+    "height": 645,
+    "sha256": "1f95863a784ab105e0c103ba3e24f6cb799b55d156d66842730c9e4e9d6d4bbc",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "controlled-local-runtime",
+    "decision": "Sanitized SQL rows include actual 200/429 gateway events; visible record timestamps are not capture time.",
+    "published_copy": "screenshots/final-blog/04-postgresql-gateway-events.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/05postgresqltelemetryevents.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1591,
+    "height": 930,
+    "sha256": "0b9ae3e33c4b7e1d778a66cffc41e37bf07b53ba6f7289494d66caa9c8d94bfa",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-runtime",
+    "decision": "Safe older SQL observation: 21-row aggregate, NULL latency; omitted in favor of later gateway rows.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/06mlmonitoring.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1897,
+    "height": 865,
+    "sha256": "e885e49513428caec1474de0a7d8ff295c231ee075895179c6151ca1dd51476c",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "demo-fixture-and-synthetic-report",
+    "decision": "Visible demo banner; actual retained synthetic evaluation metrics, not a live deployed model.",
+    "published_copy": "screenshots/final-blog/11-ml-monitoring-synthetic-demo.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/06securityalerts.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1027,
+    "height": 212,
+    "sha256": "e4546e4d748cddfa7621272a9de4d974267db806cebe311c790b3c96e86e70d0",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "controlled-local-runtime",
+    "decision": "Genuine stored alert with 16 evidence links, but exclude for personal workspace path. Clean recapture needed for named Screenshot 06.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/07alertevidencedetails.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1896,
+    "height": 787,
+    "sha256": "c07f231350762c63be23a727d27c84db230f4ad7d7157829628c2788469acc06",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "controlled-local-runtime",
+    "decision": "Safe joined alert/evidence rows; LIMIT page shows 12 rows, not all 16 evidence links.",
+    "published_copy": "screenshots/final-blog/05-alert-evidence-details.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/07apiservices.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1896,
+    "height": 866,
+    "sha256": "281de7c5a1dc11fb2eee950224b89c0a16e648d7faefb37744809118b90fb55c",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "demo-fixture",
+    "decision": "Visible demo banner; three fixture services do not mean three deployed business APIs.",
+    "published_copy": "screenshots/final-blog/12-api-services-demo.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/07wso2-apioverview.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 997,
+    "height": 757,
+    "sha256": "a5c02f9f65c76c43e1bb3c495023915e662ebf6665db18a1746c36fc5ae1ca02",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "configuration-form",
+    "decision": "Safe but omit: pre-creation OpenAPI form, not a published API overview.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/08wso2backendendpoint.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1896,
+    "height": 865,
+    "sha256": "d437a36522727aa544cc2e0ca69af78ed09c62e7c0cfec2205ff927e8e025966",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-configuration",
+    "decision": "Safe but omit: CREATED-state overview; filename does not prove a deployed endpoint.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/09wso2gatewaydeployment.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1896,
+    "height": 867,
+    "sha256": "67fe62cb74c580f7dc2ce853ddd62da2b42aad007191bee125fb7b2a6056eb12",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-configuration",
+    "decision": "Safe lifecycle PUBLISHED screen; not gateway revision-deployment proof.",
+    "published_copy": "screenshots/final-blog/13-published-lifecycle.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/10wso2developerportal.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 1351,
+    "height": 795,
+    "sha256": "3f30c39caac7ca26f6b898b10fc1541cd17594a1c6ea365157f474208cbabaf9",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-configuration",
+    "decision": "Safe published catalog entry; no keys/token details visible.",
+    "published_copy": "screenshots/final-blog/14-developer-portal.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/environment-versions.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 655,
+    "height": 322,
+    "sha256": "57720fbb4ce86128e12061766dff1b20ea452e37207c9048c70ab9fdc8e70ea6",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-environment",
+    "decision": "Safe but omit: terminal versions are historical, not this test environment; no personal username shown.",
+    "published_copy": null,
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/finalblog03aratelimitpolicy.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 982,
+    "height": 530,
+    "sha256": "2bc426c1ba0d33b52b531ef627d2ceae66f23fcc4307c80450eea8760e55ede9",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "runtime-configuration",
+    "decision": "Safe dedicated application overview showing configured 10PerMin policy and approved state; not a measured 429 result.",
+    "published_copy": "screenshots/final-blog/03-application-rate-policy.png",
+    "visually_reviewed": true
+  },
+  {
+    "original": "screenshots/WSO2Dockerimage.png",
+    "valid": true,
+    "format": "PNG",
+    "width": 837,
+    "height": 327,
+    "sha256": "f9c2492a7ee525df068e21a82801b1960d1ab306d4d67bef2fc8f99b503cfdcb",
+    "metadata_keys": [
+      "dpi",
+      "gamma",
+      "srgb"
+    ],
+    "capture_time": null,
+    "provenance": "historical-installation",
+    "decision": "Exclude: personal workspace path; pull completion does not establish service readiness.",
+    "published_copy": null,
+    "visually_reviewed": true
+  }
+]
