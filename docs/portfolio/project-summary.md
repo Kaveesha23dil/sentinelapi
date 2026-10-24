@@ -27,7 +27,7 @@ WSO2 API Manager 4.5.0, Python 3.12, FastAPI, PostgreSQL, SQLAlchemy, Alembic, D
 
 ## Verified outcomes and boundaries
 
-Current audit: 156 Python tests passed plus four subtests, two existing Windows failures; 36 frontend unit tests and seven Chromium tests passed; lint/typecheck/build passed. Thirty-two real DB checks were collected only. Historical live evidence correlated six responses/events and later observed 21 matches; it does not establish current health.
+Original documentation audit at f931455: 156 Python tests passed plus four subtests, two Windows failures; 36 frontend unit tests and seven Chromium tests passed. That audit collected DB checks only. The newer [release verification](../release-verification.md) executes real guarded DB tests and reports the current genuine rule alert/16 evidence links, while retaining the Windows failures and ML/live-dashboard limits.
 
 Controlled synthetic Isolation Forest results: precision .931034, recall .45, F1 .606742 and FPR .066667 across 180 held-out minutes. These are not production attack metrics. Full live rule/ML/dashboard acceptance, dependency remediation and performance measurements remain pending. Step 9 and its Windows fix are unmerged.
 

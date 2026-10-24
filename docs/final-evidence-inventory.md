@@ -1,5 +1,10 @@
 # Final evidence inventory
 
+Historical Step 10 inventory before the final user captures were curated. The
+current [release evidence audit](release-evidence-audit.md) lists all newly supplied
+images, publication exclusions and exact-copy destinations. Earlier evidence below
+is retained unchanged and is not relabeled as a current live dashboard run.
+
 Reviewed 2026-10-24. All 15 tracked raster images exist and were reviewed visually, directly or through a byte-identical reviewed copy. Dimensions, SHA256, source classification and last committed revisions as observed before the evidence checkpoint are in [image-inventory.json](../infrastructure/finalization/image-inventory.json). A Git commit time proves versioning, not necessarily capture time. No video file is tracked. There are no tracked live WSO2, SQL terminal or real alert screenshots.
 
 ## Application images
