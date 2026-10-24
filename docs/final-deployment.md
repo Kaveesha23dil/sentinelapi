@@ -1,6 +1,6 @@
 # Safe local deployment and reproduction
 
-Baseline `f931455`, audit 2026-10-24. This is a source-reviewed runbook, not a verified one-command deployment. Docker CLI is unavailable in this shell. Commands below were not applied during this audit. Existing WSO2, PostgreSQL and volumes were preserved.
+Baseline `f931455`, original documentation audit 2026-10-24. This is a source-reviewed runbook, not a verified one-command deployment. A subsequent [focused runtime repair](detection-runtime-repair.md) accessed Docker through the host environment and verified controlled rule alerts, authenticated monitoring and selected service startup. Read that report for actual executed commands and current results. Existing WSO2, PostgreSQL and volumes were preserved.
 
 ## Prerequisites and private configuration
 
@@ -52,13 +52,12 @@ docker compose --profile tools run --rm --no-deps persistence alembic check
 
 Wait for database readiness before running tools. Head is `b7d000000001` after `a6d1023f0001`, `71a9c2e16b05` and `4061c4c0ee19`. Upgrade initializes an empty schema or applies pending revisions without resetting traffic. Changing POSTGRES_PASSWORD in `.env` does not rotate an initialized database's owner password automatically.
 
-Provision runtime roles using the owner credential. These commands can rotate scoped role passwords: use the intended existing secrets, not newly generated mismatches.
+Provision runtime roles using the owner credential. Detection provisioning creates missing roles and refreshes scoped grants without rotating existing passwords; rotation now requires explicit `--rotate-existing-passwords`. Telemetry role provisioning is separate and can rotate its existing passwords, so use the intended secrets rather than generating mismatches.
 
 ```powershell
 docker compose --profile tools run --rm --no-deps persistence python -m sentinelapi.db.provision_telemetry_roles
-# Privately set DETECTOR_DB_PASSWORD and SECURITY_DB_PASSWORD in the HOST process first.
-# Use a secret manager or hidden prompt, never command-line literals.
-docker compose --profile tools run --rm --no-deps -e DETECTOR_DB_PASSWORD -e SECURITY_DB_PASSWORD persistence python -m sentinelapi.detection.provision
+# Private .env substitution now passes these two optional secrets into owner tools.
+docker compose --profile tools run --rm --no-deps persistence python -m sentinelapi.detection.provision
 ```
 
 Real DB tests need a separate guarded `sentinelapi_test_*` database with migrations; never point them at project data. See [database architecture](database-architecture.md) and `scripts/verify_database.ps1`. That script includes a PostgreSQL restart unless `-SkipRestart`; obtain approval for disruptive checks. It retains test DBs for inspection. Current audit collected 32 DB tests without executing them.
@@ -92,7 +91,7 @@ $env:PYTHONPATH='backend;collector;scripts'
 .\.venv-step6\Scripts\python.exe scripts/bridge_api_logs.py --follow
 ```
 
-Compose does not launch this bridge; missing bridge activity makes telemetry stale. Current main has Windows directory-fsync defects; the tested fix exists only on unmerged `test/end-to-end-validation`. Review/merge that fix through the approved workflow before claiming reliable Windows reproduction. Linux transport alone does not repair host checkpoint writes.
+Compose does not launch this bridge; missing bridge activity makes telemetry stale. The host checkpoint writer already guards POSIX-only directory fsync, and the deployed transport helper runs inside Linux. That actual Windows-host/Docker bridge path worked in the focused repair. Direct Windows transport unit fixtures still hit O_DIRECTORY; their portability fix remains on unmerged `test/end-to-end-validation`. Those fixture failures were not the cause of the stale bridge in this validation.
 
 ## Experimental ML
 

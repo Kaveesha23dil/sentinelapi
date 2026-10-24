@@ -4,7 +4,7 @@ An API security monitoring prototype combining **WSO2 API Manager 4.5.0**, sanit
 
 Authentication and rate limits answer whether a request may pass the gateway. Investigating unusual behavior also requires a trustworthy record of what happened. SentinelAPI explores that problem without putting its rule engine or experimental ML in the request path.
 
-**Status:** portfolio research prototype, not production ready. Historical live evidence proves gateway routing and a collector-to-database-to-monitoring slice. The complete live detection/ML/dashboard chain remains unverified. Step 9 is preserved on an unmerged branch; see the [final audit](docs/final-project-audit.md) and [current verification](docs/final-verification.md).
+**Status:** portfolio research prototype, not production ready. A subsequent [controlled local runtime validation](docs/detection-runtime-repair.md) verified 24 fresh WSO2 requests through collection into a genuine error-rate alert with 16 evidence links and authenticated API retrieval. Full live ML/dashboard acceptance remains pending. Step 9 is preserved on an unmerged branch; the [final audit](docs/final-project-audit.md) and [documentation verification](docs/final-verification.md) retain their earlier source-baseline findings.
 
 ## Implemented features
 
@@ -50,6 +50,8 @@ Arrows describe implemented connections, not proof of a complete current deploym
 
 The [evidence inventory](docs/final-evidence-inventory.md) distinguishes application captures, genuine synthetic evaluation charts and historical live JSON evidence. Live WSO2 screenshots are still missing.
 
+A genuine controlled rule alert is now available through the [read-only Screenshot 06 query](screenshots/final-blog/README.md); its PNG awaits manual capture.
+
 ## Technology
 
 WSO2 API Manager 4.5.0 · Python 3.12 · FastAPI · SQLAlchemy 2 · Alembic · PostgreSQL 17 · Docker Compose · scikit-learn Isolation Forest · React · TypeScript · Vite · Pytest · Vitest · Playwright.
@@ -93,7 +95,7 @@ npm.cmd run build
 npm.cmd run test:browser
 ```
 
-Current audit: **156 Python tests passed, 2 known Windows collector failures, 4 passing subtests**; **36 frontend unit tests** and **7 Chromium tests** passed. Lint/typecheck/build passed. **32 DB-dependent tests were collected, not executed**. The unmerged Step 9 fix is not present here. These are unit, contract, synthetic and browser fixture/mock checks, not full live acceptance.
+Documentation audit at `f931455`: **156 Python tests passed, 2 known Windows collector failures, 4 passing subtests**; **36 frontend unit tests** and **7 Chromium tests** passed. Lint/typecheck/build passed. That audit collected **32 DB-dependent tests without execution**. The later [runtime repair](docs/detection-runtime-repair.md) executed focused suites with **122 host passes plus four subtests, 21 real PostgreSQL passes and 48 Linux collector/monitoring/startup passes** (overlapping groups), and genuine controlled rule-alert acceptance. The unmerged Step 9 Windows fix remains separate.
 
 Historical Step 5 correlated **6 gateway responses with 6 database and monitoring records**, including a rejected request, retaining the count after replay. [Live source report](infrastructure/telemetry/e2e-verification.json).
 
@@ -110,7 +112,7 @@ These are **synthetic results**, not production attack accuracy. Rule history is
 
 Secrets belong in ignored configuration or process memory. Stored events omit bodies, headers and raw addresses; source WSO2 logs still need protection. Monitoring has a separate token; security APIs enforce reader/analyst/admin capabilities. Model hashes verify bytes, not publisher trust; joblib artifacts require a trusted operator.
 
-Outstanding work: backend isolation (loopback 8000 bypasses the gateway), observed low-quota HTTP 429, the `/democommerce` context decision, deployment drift, unavailable security API, live DB/detection/ML/dashboard acceptance, dependency advisory review, backups/retention and production identity/TLS. Windows collector portability is fixed only on unmerged Step 9. No public deployment is claimed.
+Outstanding work: backend isolation (loopback 8000 bypasses the gateway), dedicated low-quota acceptance beyond retained 429 observations, the `/democommerce` context decision, live ML/dashboard acceptance, dependency advisory review, backups/retention and production identity/TLS. Monitoring/security runtime drift and controlled rule-alert generation were addressed in the focused repair; health still depends on the explicit bridge. Windows collector portability is fixed only on unmerged Step 9. No public deployment is claimed.
 
 ## Engineering notes and portfolio
 
