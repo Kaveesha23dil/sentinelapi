@@ -1,0 +1,58 @@
+{
+  "audit_date": "2026-10-24",
+  "source_baseline": "f931455",
+  "python_junit": {
+    "tests": 162,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0
+  },
+  "python_console": {
+    "passed": 156,
+    "failed": 2,
+    "skipped": 0,
+    "passing_subtests": 4
+  },
+  "frontend_unit": {
+    "passed": 36,
+    "failed": 0,
+    "skipped": 0
+  },
+  "frontend_lint": "passed",
+  "frontend_typecheck": "passed",
+  "frontend_build": "passed",
+  "browser": {
+    "startTime": "2026-10-24T02:56:28.946Z",
+    "duration": 22080.322,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "database": {
+    "collected": 32,
+    "executed": 0
+  },
+  "historical_step9_local_junit": {
+    "host": {
+      "tests": 165,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "e2e": {
+      "tests": 34,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 19
+    },
+    "live-security": {
+      "tests": 17,
+      "failures": 10,
+      "errors": 0,
+      "skipped": 5
+    }
+  },
+  "full_live_acceptance": "not established",
+  "performance": "not measured"
+}
