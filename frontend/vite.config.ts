@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
           rewrite: (p) => p.replace(/^\/monitoring-api/, ''),
         },
         '/security-api': {
-          target: env.DASHBOARD_SECURITY_UPSTREAM || 'http://127.0.0.1:8020',
+          target: env.DASHBOARD_SECURITY_UPSTREAM || 'http://127.0.0.1:8010',
           rewrite: (p) => p.replace(/^\/security-api/, ''),
         },
       },

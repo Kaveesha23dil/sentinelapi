@@ -72,6 +72,8 @@ services:
       POSTGRES_USER: sentinelapi_monitor
       POSTGRES_PASSWORD: ${MONITORING_DB_PASSWORD:?Set private monitoring database password}
       MONITORING_API_TOKEN: ${MONITORING_API_TOKEN:?Set private monitoring bearer token}
+      # Combined dashboard API stays read-only; write roles belong to security-api.
+      SECURITY_READER_TOKEN: ${SECURITY_READER_TOKEN:?Set private security reader token}
     command: [uvicorn, sentinelapi.monitoring.app:app, --host, 0.0.0.0, --port, "8001", --no-access-log]
     ports: ["127.0.0.1:8010:8001"]
     volumes:

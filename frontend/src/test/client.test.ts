@@ -52,3 +52,19 @@ it('rejects demo mutations without a network call', async () => {
   ).rejects.toMatchObject({ status: 403 })
   expect(fetch).not.toHaveBeenCalled()
 })
+
+it('routes security reads through the same-origin security proxy with the security credential', async () => {
+  const fetch = vi
+    .fn()
+    .mockResolvedValue(
+      new Response(JSON.stringify({ role: 'reader', capabilities: ['security:read'] })),
+    )
+  vi.stubGlobal('fetch', fetch)
+  const pair = { monitoring: 'synthetic-monitor-only', security: 'synthetic-reader-only' }
+  await request('live', pair, '/api/v1/security/session', sessionSchema)
+  const [url, options] = fetch.mock.calls[0]
+  expect(url.origin).toBe(window.location.origin)
+  expect(url.pathname).toBe('/security-api/api/v1/security/session')
+  expect(options.headers.Authorization).toBe(`Bearer ${pair.security}`)
+  expect(JSON.stringify(options)).not.toContain(pair.monitoring)
+})
