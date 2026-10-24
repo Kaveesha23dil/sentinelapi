@@ -31,6 +31,12 @@ app = FastAPI(title='SentinelAPI monitoring', docs_url=None, redoc_url=None, ope
 bearer = HTTPBearer(auto_error=False)
 
 
+@app.get('/healthz', include_in_schema=False)
+def liveness():
+    """Process probe; dependency health remains authenticated and separate."""
+    return {'status': 'ok'}
+
+
 def authorize(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)):
     expected = os.getenv('MONITORING_API_TOKEN', '')
     if len(expected) < 32 or expected.startswith('REPLACE_WITH_'):

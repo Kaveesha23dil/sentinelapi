@@ -1,0 +1,10 @@
+schemaVersion: 1.2
+endpoints:
+  - name: monitoring-api
+    displayName: SentinelAPI Monitoring API
+    service:
+      basePath: /
+      port: 8001
+    type: REST
+    networkVisibilities:
+      - Project
