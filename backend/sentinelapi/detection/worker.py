@@ -1,6 +1,7 @@
 """Out-of-band worker: bounded event-time slices, overlap and atomic checkpoints."""
 import asyncio
 import logging
+import signal
 from datetime import datetime, timedelta, timezone
 from uuid import uuid4
 
@@ -94,10 +95,23 @@ def run_once(engine, now=None):
         return {'state': 'processed', 'created': created, 'observed': len(rows), 'watermark': end.isoformat()}
 
 
-async def serve():
+async def serve(stopping=None):
+    # Finish the current transaction before exiting on Docker stop. A forced
+    # kill still relies on PostgreSQL rollback and the persisted watermark.
+    loop = asyncio.get_running_loop()
+    owned_signals = []
+    if stopping is None:
+        stopping = asyncio.Event()
+        for signum in (signal.SIGTERM, signal.SIGINT):
+            try:
+                loop.add_signal_handler(signum, stopping.set)
+                owned_signals.append(signum)
+            except NotImplementedError:
+                # Windows foreground execution retains asyncio's Ctrl+C handling.
+                pass
     engine = make_engine()
     try:
-        while True:
+        while not stopping.is_set():
             try:
                 result = await asyncio.to_thread(run_once, engine)
                 LOG.info('detector_cycle state=%s created=%s', result['state'], result['created'])
@@ -110,9 +124,14 @@ async def serve():
                 await asyncio.to_thread(ml_run_once, engine)
             except Exception:
                 LOG.error('ml_cycle_failed checkpoint_not_advanced')
-            await asyncio.sleep(5)
+            try:
+                await asyncio.wait_for(stopping.wait(), timeout=5)
+            except TimeoutError:
+                pass
     finally:
         engine.dispose()
+        for signum in owned_signals:
+            loop.remove_signal_handler(signum)
 
 
 if __name__ == '__main__':

@@ -153,3 +153,19 @@ def test_incident_unique_constraint(isolated):
                 first_detected_at=NOW, last_detected_at=NOW,
                 incident_fingerprint=alert.incident_fingerprint))
             db.flush()
+
+
+def test_seed_rules_preserves_reviewed_configuration(isolated):
+    _, db, _ = isolated
+    definitions = db.scalars(select(DetectionRule).where(DetectionRule.name.in_(DEFAULTS))).all()
+    assert len(definitions) == 5
+    assert {row.name for row in definitions if row.enabled} == {'error_rate'}
+    rule = next(row for row in definitions if row.rule_type == 'error_rate')
+    reviewed = dict(rule.configuration, threshold=0.75, version=2)
+    rule.configuration, rule.enabled = reviewed, False
+    db.commit()
+    seed_rules(db)
+    db.commit()
+    db.expire_all()
+    assert rule.configuration == reviewed and rule.enabled is False
+    assert len(db.scalars(select(DetectionRule).where(DetectionRule.name.in_(DEFAULTS))).all()) == 5

@@ -26,6 +26,7 @@ coverage/
 pgdata/
 *.dump
 *.backup
+backups/
 .runtime/
 
 # Dashboard generated output; keep only reviewed test summaries/screenshots.
