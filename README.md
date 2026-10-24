@@ -120,5 +120,6 @@ Outstanding work: backend isolation (loopback 8000 bypasses the gateway), observ
 - [Demo video plan — not recorded](docs/demo-video-script.md)
 - [Project summary](docs/portfolio/project-summary.md) · [Interview guide](docs/portfolio/interview-preparation.md)
 - [Development journal](docs/development-journal.md) · [Release/PR plan](docs/final-release-plan.md)
+- [Finalization report and remaining release gates](docs/finalization-report.md)
 
 Published blog URL: pending. Repository: [SentinelAPI on GitHub](https://github.com/Kaveesha23dil/sentinelapi).
