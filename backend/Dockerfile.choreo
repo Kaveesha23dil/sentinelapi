@@ -13,7 +13,7 @@ COPY . .
 
 RUN useradd --create-home --uid 10002 sentinelapi
 
-USER sentinelapi
+USER 10002
 
 EXPOSE 8001
 
