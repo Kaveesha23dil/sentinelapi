@@ -39,3 +39,9 @@ backups/
 frontend/test-results/
 frontend/playwright-report/
 *.tsbuildinfo
+
+screenshots/dashboard-demo/
+screenshots/historical-reference/
+screenshots/private-review/
+screenshots/runtime-evidence/
+screenshots/wso2-and-api/
