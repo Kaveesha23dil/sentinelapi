@@ -493,3 +493,7 @@ Validation passed: 43 local README targets, five image paths, Mermaid 12.2.0 par
 ## 2026-10-25 - Relocate local screenshot archive
 
 Moved all 31 PNGs from project/screenshots/ into screenshots/ with their existing content/privacy categories: dashboard-demo (6), wso2-and-api (5), runtime-evidence (2), historical-reference (7), private-review (11). Preserved original filenames and Git exclusions; updated project inventory and archive README links. Existing root-level duplicates and prior README deletions were left untouched. Native PowerShell path checks verified both move roots inside the workspace; all 31 destination SHA256 hashes matched their source hashes and no destination was overwritten. No application code changed; application tests not applicable. Base commit: 569e08a; this organization change is uncommitted.
+
+## 2026-10-25 - Clean screenshot folders
+
+User requested removal of screenshot READMEs, empty folders and loose images. Removed 1 remaining README file(s), 11 empty folders and 31 redundant root PNG copies after matching SHA256 against categorized originals. All 31 original images remain under screenshots/ with unchanged hashes; reviewed publication and dashboard evidence folders remain in place. Updated evidence inventory source paths and two references to removed README files. Generated ML evaluation charts stay with their report artifacts; these are not screenshots. Verified no loose images, READMEs or empty subfolders remain. No application changes or application tests required. Work remains uncommitted.

@@ -1,6 +1,6 @@
 [
   {
-    "original": "screenshots/01dashboardoverview.png",
+    "original": "screenshots/dashboard-demo/01dashboardoverview.png",
     "valid": true,
     "format": "PNG",
     "width": 1897,
@@ -18,7 +18,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/01fastapiswagger.png",
+    "original": "screenshots/wso2-and-api/01fastapiswagger.png",
     "valid": true,
     "format": "PNG",
     "width": 1901,
@@ -36,7 +36,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/01wso2apipublisher.png",
+    "original": "screenshots/wso2-and-api/01wso2apipublisher.png",
     "valid": true,
     "format": "PNG",
     "width": 1897,
@@ -54,7 +54,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/02aoauthunauthorized.png",
+    "original": "screenshots/private-review/02aoauthunauthorized.png",
     "valid": true,
     "format": "PNG",
     "width": 947,
@@ -72,7 +72,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/02apitraffic.png",
+    "original": "screenshots/dashboard-demo/02apitraffic.png",
     "valid": true,
     "format": "PNG",
     "width": 1895,
@@ -90,7 +90,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/02boauthauthorized.png",
+    "original": "screenshots/private-review/02boauthauthorized.png",
     "valid": true,
     "format": "PNG",
     "width": 1897,
@@ -108,7 +108,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/02createorderresponse.png",
+    "original": "screenshots/historical-reference/02createorderresponse.png",
     "valid": true,
     "format": "PNG",
     "width": 1892,
@@ -126,7 +126,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/02wso2startup.png",
+    "original": "screenshots/private-review/02wso2startup.png",
     "valid": true,
     "format": "PNG",
     "width": 1072,
@@ -144,7 +144,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03apiintegration04dockercontainers.png",
+    "original": "screenshots/historical-reference/03apiintegration04dockercontainers.png",
     "valid": true,
     "format": "PNG",
     "width": 1526,
@@ -162,7 +162,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03aratelimitpolicy.png",
+    "original": "screenshots/historical-reference/03aratelimitpolicy.png",
     "valid": true,
     "format": "PNG",
     "width": 1901,
@@ -180,7 +180,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03bratelimitenforcemen3t.png",
+    "original": "screenshots/private-review/03bratelimitenforcemen3t.png",
     "valid": true,
     "format": "PNG",
     "width": 572,
@@ -198,7 +198,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03bratelimitenforcement.png",
+    "original": "screenshots/private-review/03bratelimitenforcement.png",
     "valid": true,
     "format": "PNG",
     "width": 1022,
@@ -216,7 +216,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03pytestresults.png",
+    "original": "screenshots/private-review/03pytestresults.png",
     "valid": true,
     "format": "PNG",
     "width": 921,
@@ -234,7 +234,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03security03unauthorizedrequest.png",
+    "original": "screenshots/private-review/03security03unauthorizedrequest.png",
     "valid": true,
     "format": "PNG",
     "width": 922,
@@ -252,7 +252,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03security05ratelimitpolicy.png",
+    "original": "screenshots/historical-reference/03security05ratelimitpolicy.png",
     "valid": true,
     "format": "PNG",
     "width": 1437,
@@ -270,7 +270,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/03threatalerts.png",
+    "original": "screenshots/dashboard-demo/03threatalerts.png",
     "valid": true,
     "format": "PNG",
     "width": 1900,
@@ -288,7 +288,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/04incidentdetails.png",
+    "original": "screenshots/dashboard-demo/04incidentdetails.png",
     "valid": true,
     "format": "PNG",
     "width": 1900,
@@ -306,7 +306,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/04wso2apitrafficlogs.png",
+    "original": "screenshots/private-review/04wso2apitrafficlogs.png",
     "valid": true,
     "format": "PNG",
     "width": 1887,
@@ -324,7 +324,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/05postgresqltelemet5ryevents.png",
+    "original": "screenshots/runtime-evidence/05postgresqltelemet5ryevents.png",
     "valid": true,
     "format": "PNG",
     "width": 1146,
@@ -342,7 +342,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/05postgresqltelemetryevents.png",
+    "original": "screenshots/historical-reference/05postgresqltelemetryevents.png",
     "valid": true,
     "format": "PNG",
     "width": 1591,
@@ -360,7 +360,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/06mlmonitoring.png",
+    "original": "screenshots/dashboard-demo/06mlmonitoring.png",
     "valid": true,
     "format": "PNG",
     "width": 1897,
@@ -378,7 +378,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/06securityalerts.png",
+    "original": "screenshots/private-review/06securityalerts.png",
     "valid": true,
     "format": "PNG",
     "width": 1027,
@@ -396,7 +396,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/07alertevidencedetails.png",
+    "original": "screenshots/runtime-evidence/07alertevidencedetails.png",
     "valid": true,
     "format": "PNG",
     "width": 1896,
@@ -414,7 +414,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/07apiservices.png",
+    "original": "screenshots/dashboard-demo/07apiservices.png",
     "valid": true,
     "format": "PNG",
     "width": 1896,
@@ -432,7 +432,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/07wso2-apioverview.png",
+    "original": "screenshots/historical-reference/07wso2-apioverview.png",
     "valid": true,
     "format": "PNG",
     "width": 997,
@@ -450,7 +450,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/08wso2backendendpoint.png",
+    "original": "screenshots/historical-reference/08wso2backendendpoint.png",
     "valid": true,
     "format": "PNG",
     "width": 1896,
@@ -468,7 +468,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/09wso2gatewaydeployment.png",
+    "original": "screenshots/wso2-and-api/09wso2gatewaydeployment.png",
     "valid": true,
     "format": "PNG",
     "width": 1896,
@@ -486,7 +486,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/10wso2developerportal.png",
+    "original": "screenshots/wso2-and-api/10wso2developerportal.png",
     "valid": true,
     "format": "PNG",
     "width": 1351,
@@ -504,7 +504,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/environment-versions.png",
+    "original": "screenshots/private-review/environment-versions.png",
     "valid": true,
     "format": "PNG",
     "width": 655,
@@ -522,7 +522,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/finalblog03aratelimitpolicy.png",
+    "original": "screenshots/wso2-and-api/finalblog03aratelimitpolicy.png",
     "valid": true,
     "format": "PNG",
     "width": 982,
@@ -540,7 +540,7 @@
     "visually_reviewed": true
   },
   {
-    "original": "screenshots/WSO2Dockerimage.png",
+    "original": "screenshots/private-review/WSO2Dockerimage.png",
     "valid": true,
     "format": "PNG",
     "width": 837,

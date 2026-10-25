@@ -96,7 +96,7 @@ unresolved collector failures or unexecuted DB checks.
 Nine captures were created and visually reviewed: seven application screens, one
 390px responsive screen, and the actual browser test HTML report. All app captures
 visibly show DEMO DATA. GitHub PR screenshot 10 is pending. Exact manual Windows
-instructions: screenshots/08-security-dashboard/README.md. No reconstructed interface,
+evidence: screenshots/08-security-dashboard/. No reconstructed interface,
 test result or alert image was used. Screenshot references are synthetic service/
 event IDs; credentials and private client identities are absent.
 

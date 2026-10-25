@@ -147,7 +147,7 @@ Clear-Host
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/show_security_alerts.ps1
 ```
 
-Widen the terminal so title/severity/risk/status/UTC time/evidence count fit. Win+Shift+S → select the actual table and save as `screenshots/final-blog/06-security-alerts.png`. Exclude unrelated history, personal host paths and notifications. Caption: **Controlled local WSO2 error-rate validation; genuine persisted alert, not a real-world attack.** Do not reconstruct the table or edit the returned values. [Capture checklist](../screenshots/final-blog/README.md).
+Widen the terminal so title/severity/risk/status/UTC time/evidence count fit. Win+Shift+S → select the actual table and save as `screenshots/final-blog/06-security-alerts.png`. Exclude unrelated history, personal host paths and notifications. Caption: **Controlled local WSO2 error-rate validation; genuine persisted alert, not a real-world attack.** Do not reconstruct the table or edit the returned values. [Evidence audit](release-evidence-audit.md).
 
 ## Credential rotation and remaining limits
 
