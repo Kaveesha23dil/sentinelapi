@@ -39,3 +39,10 @@ backups/
 frontend/test-results/
 frontend/playwright-report/
 *.tsbuildinfo
+
+# Relocated local screenshot originals (retain existing privacy exclusions).
+screenshots/dashboard-demo/
+screenshots/wso2-and-api/
+screenshots/runtime-evidence/
+screenshots/historical-reference/
+screenshots/private-review/

@@ -1,7 +1,7 @@
 [
   {
     "original_path": "project/01dashboardoverview.png",
-    "organized_path": "project/screenshots/dashboard-demo/01dashboardoverview.png",
+    "organized_path": "screenshots/dashboard-demo/01dashboardoverview.png",
     "sha256": "1800e410e36b119dc1cfe3ed080beed42bc785f7489987b3e941bc376c3b7a29",
     "category": "dashboard-demo",
     "review_note": "Visible DEMO DATA; illustrative counts, not live metrics.",
@@ -9,7 +9,7 @@
   },
   {
     "original_path": "project/01fastapiswagger.png",
-    "organized_path": "project/screenshots/wso2-and-api/01fastapiswagger.png",
+    "organized_path": "screenshots/wso2-and-api/01fastapiswagger.png",
     "sha256": "6174476b0f12a19027c73dfcf4a7d14a663956b7f3494baa607f12a1516c2581",
     "category": "wso2-and-api",
     "review_note": "Actual Swagger operation list; no execution result implied.",
@@ -17,7 +17,7 @@
   },
   {
     "original_path": "project/01wso2apipublisher.png",
-    "organized_path": "project/screenshots/wso2-and-api/01wso2apipublisher.png",
+    "organized_path": "screenshots/wso2-and-api/01wso2apipublisher.png",
     "sha256": "e8dc74a87f0d0cef73e87b29e89e1c7a5e38637c9739b857f48440192c3e32da",
     "category": "wso2-and-api",
     "review_note": "PUBLISHED API, OAuth2, actual context; generic admin label, no secret.",
@@ -25,7 +25,7 @@
   },
   {
     "original_path": "project/02aoauthunauthorized.png",
-    "organized_path": "project/screenshots/private-review/02aoauthunauthorized.png",
+    "organized_path": "screenshots/private-review/02aoauthunauthorized.png",
     "sha256": "2a717a23cfe8d62d9130af146ea11e71a988ce41f716ff63a4fe2221fbc5c207",
     "category": "private-review",
     "review_note": "Exclude: personal workspace path and full correlation reference; curl uses TLS bypass. HTTP 401 is visible.",
@@ -33,7 +33,7 @@
   },
   {
     "original_path": "project/02apitraffic.png",
-    "organized_path": "project/screenshots/dashboard-demo/02apitraffic.png",
+    "organized_path": "screenshots/dashboard-demo/02apitraffic.png",
     "sha256": "6927f217cefef99e992a8da9992e4fda7de2f968be35be7ac27bce0eac6cb834",
     "category": "dashboard-demo",
     "review_note": "Visible DEMO DATA and fixture event references.",
@@ -41,7 +41,7 @@
   },
   {
     "original_path": "project/02boauthauthorized.png",
-    "organized_path": "project/screenshots/private-review/02boauthauthorized.png",
+    "organized_path": "screenshots/private-review/02boauthauthorized.png",
     "sha256": "08fdd24e3d6f8836d4ce548fbc9737fd0cd6ad6ccfa347dee96ef389ca145e4f",
     "category": "private-review",
     "review_note": "EXCLUDE: visible Authorization bearer token. Do not publish or transcribe; revoke affected token and review exposure.",
@@ -49,7 +49,7 @@
   },
   {
     "original_path": "project/02createorderresponse.png",
-    "organized_path": "project/screenshots/historical-reference/02createorderresponse.png",
+    "organized_path": "screenshots/historical-reference/02createorderresponse.png",
     "sha256": "31320508be74dd65451c817f4ef304d4f200e0884949b1dad406db71aad7ae42",
     "category": "historical-reference",
     "review_note": "Safe but omit: schema Example Value, not an executed HTTP 201 response.",
@@ -57,7 +57,7 @@
   },
   {
     "original_path": "project/02wso2startup.png",
-    "organized_path": "project/screenshots/private-review/02wso2startup.png",
+    "organized_path": "screenshots/private-review/02wso2startup.png",
     "sha256": "4ca1fb4bdb7382487102475a14c940075b944f7ede4e4e13fb42325379e9410a",
     "category": "private-review",
     "review_note": "Exclude: personal workspace paths; startup/redirect transcript is not API routing proof.",
@@ -65,7 +65,7 @@
   },
   {
     "original_path": "project/03apiintegration04dockercontainers.png",
-    "organized_path": "project/screenshots/historical-reference/03apiintegration04dockercontainers.png",
+    "organized_path": "screenshots/historical-reference/03apiintegration04dockercontainers.png",
     "sha256": "a03bf187b0835cb2f90c3cf9250ea8360daf161261c2d7bf008ceaede09f9fa2",
     "category": "historical-reference",
     "review_note": "Safe but omit: narrow WSO2 container row, not whole-stack readiness; CPU is an instantaneous display.",
@@ -73,7 +73,7 @@
   },
   {
     "original_path": "project/03aratelimitpolicy.png",
-    "organized_path": "project/screenshots/historical-reference/03aratelimitpolicy.png",
+    "organized_path": "screenshots/historical-reference/03aratelimitpolicy.png",
     "sha256": "c63cb0a6c36f25dbc42dba7f5e47dd1f84b505f634dda1d59dbaf5ec14ad2c91",
     "category": "historical-reference",
     "review_note": "Safe alternate policy catalog; omitted to avoid redundant figures.",
@@ -81,7 +81,7 @@
   },
   {
     "original_path": "project/03bratelimitenforcemen3t.png",
-    "organized_path": "project/screenshots/private-review/03bratelimitenforcemen3t.png",
+    "organized_path": "screenshots/private-review/03bratelimitenforcemen3t.png",
     "sha256": "3fea057d12c6fd19705030d810b3242ab069d7fbd62661ae43d8a6d9b4f0acc8",
     "category": "private-review",
     "review_note": "Exclude: personal workspace path. Shows 10 HTTP 200 then 5 HTTP 429; not a timestamped benchmark.",
@@ -89,7 +89,7 @@
   },
   {
     "original_path": "project/03bratelimitenforcement.png",
-    "organized_path": "project/screenshots/private-review/03bratelimitenforcement.png",
+    "organized_path": "screenshots/private-review/03bratelimitenforcement.png",
     "sha256": "3b848be6c9769bb58a5cb3f7b834f005b7587657feb4a09bfa01b43403758bda",
     "category": "private-review",
     "review_note": "Exclude: personal workspace path and TLS-bypass command. Shows 11 HTTP 200 then 4 HTTP 429; separate capture, not proof of exact quota timing.",
@@ -97,7 +97,7 @@
   },
   {
     "original_path": "project/03pytestresults.png",
-    "organized_path": "project/screenshots/private-review/03pytestresults.png",
+    "organized_path": "screenshots/private-review/03pytestresults.png",
     "sha256": "18d04287e0daa07c9fe2a8a58ee60f5a62d65be46612f69e21d3d37cc199592f",
     "category": "private-review",
     "review_note": "Exclude: personal paths; 12 individual passes visible, not the current release suite summary.",
@@ -105,7 +105,7 @@
   },
   {
     "original_path": "project/03security03unauthorizedrequest.png",
-    "organized_path": "project/screenshots/private-review/03security03unauthorizedrequest.png",
+    "organized_path": "screenshots/private-review/03security03unauthorizedrequest.png",
     "sha256": "83c177e434f06fa557b5cb54afb204283bb5efbe61fc9f45d540d725efd1f108",
     "category": "private-review",
     "review_note": "Exclude: personal path/correlation reference; wrong context returns 404, not authentication rejection.",
@@ -113,7 +113,7 @@
   },
   {
     "original_path": "project/03security05ratelimitpolicy.png",
-    "organized_path": "project/screenshots/historical-reference/03security05ratelimitpolicy.png",
+    "organized_path": "screenshots/historical-reference/03security05ratelimitpolicy.png",
     "sha256": "255320c4275ae44fc3216d33c7ba8484cf27bd2b1810b9f29030ee356769c4c8",
     "category": "historical-reference",
     "review_note": "Safe alternate 10/20/50-per-minute catalog, not enforcement evidence; redundant.",
@@ -121,7 +121,7 @@
   },
   {
     "original_path": "project/03threatalerts.png",
-    "organized_path": "project/screenshots/dashboard-demo/03threatalerts.png",
+    "organized_path": "screenshots/dashboard-demo/03threatalerts.png",
     "sha256": "6064a8a695e4e3433930878f9c444c69bf2bc78a65d149dd0e79390181b0f927",
     "category": "dashboard-demo",
     "review_note": "Visible DEMO DATA; fixture high severity is not the actual medium live alert.",
@@ -129,7 +129,7 @@
   },
   {
     "original_path": "project/04incidentdetails.png",
-    "organized_path": "project/screenshots/dashboard-demo/04incidentdetails.png",
+    "organized_path": "screenshots/dashboard-demo/04incidentdetails.png",
     "sha256": "4e9e013d36d08de18a9a808ad554d98188e2d180f5e2c8cb85757d0dd78cc310",
     "category": "dashboard-demo",
     "review_note": "Original filename is misleading: actual screen is Detection rules, not Incident details.",
@@ -137,7 +137,7 @@
   },
   {
     "original_path": "project/04wso2apitrafficlogs.png",
-    "organized_path": "project/screenshots/private-review/04wso2apitrafficlogs.png",
+    "organized_path": "screenshots/private-review/04wso2apitrafficlogs.png",
     "sha256": "69f2f06cb1af1392b90121ef7fdd7d856f6e12b23bb255df16717943a33d33d3",
     "category": "private-review",
     "review_note": "EXCLUDE: raw source addresses, correlation IDs and personal workspace path. No edited substitute provided.",
@@ -145,7 +145,7 @@
   },
   {
     "original_path": "project/05postgresqltelemet5ryevents.png",
-    "organized_path": "project/screenshots/runtime-evidence/05postgresqltelemet5ryevents.png",
+    "organized_path": "screenshots/runtime-evidence/05postgresqltelemet5ryevents.png",
     "sha256": "1f95863a784ab105e0c103ba3e24f6cb799b55d156d66842730c9e4e9d6d4bbc",
     "category": "runtime-evidence",
     "review_note": "Sanitized SQL rows include actual 200/429 gateway events; visible record timestamps are not capture time.",
@@ -153,7 +153,7 @@
   },
   {
     "original_path": "project/05postgresqltelemetryevents.png",
-    "organized_path": "project/screenshots/historical-reference/05postgresqltelemetryevents.png",
+    "organized_path": "screenshots/historical-reference/05postgresqltelemetryevents.png",
     "sha256": "0b9ae3e33c4b7e1d778a66cffc41e37bf07b53ba6f7289494d66caa9c8d94bfa",
     "category": "historical-reference",
     "review_note": "Safe older SQL observation: 21-row aggregate, NULL latency; omitted in favor of later gateway rows.",
@@ -161,7 +161,7 @@
   },
   {
     "original_path": "project/06mlmonitoring.png",
-    "organized_path": "project/screenshots/dashboard-demo/06mlmonitoring.png",
+    "organized_path": "screenshots/dashboard-demo/06mlmonitoring.png",
     "sha256": "e885e49513428caec1474de0a7d8ff295c231ee075895179c6151ca1dd51476c",
     "category": "dashboard-demo",
     "review_note": "Visible demo banner; actual retained synthetic evaluation metrics, not a live deployed model.",
@@ -169,7 +169,7 @@
   },
   {
     "original_path": "project/06securityalerts.png",
-    "organized_path": "project/screenshots/private-review/06securityalerts.png",
+    "organized_path": "screenshots/private-review/06securityalerts.png",
     "sha256": "e4546e4d748cddfa7621272a9de4d974267db806cebe311c790b3c96e86e70d0",
     "category": "private-review",
     "review_note": "Genuine stored alert with 16 evidence links, but exclude for personal workspace path. Clean recapture needed for named Screenshot 06.",
@@ -177,7 +177,7 @@
   },
   {
     "original_path": "project/07alertevidencedetails.png",
-    "organized_path": "project/screenshots/runtime-evidence/07alertevidencedetails.png",
+    "organized_path": "screenshots/runtime-evidence/07alertevidencedetails.png",
     "sha256": "c07f231350762c63be23a727d27c84db230f4ad7d7157829628c2788469acc06",
     "category": "runtime-evidence",
     "review_note": "Safe joined alert/evidence rows; LIMIT page shows 12 rows, not all 16 evidence links.",
@@ -185,7 +185,7 @@
   },
   {
     "original_path": "project/07apiservices.png",
-    "organized_path": "project/screenshots/dashboard-demo/07apiservices.png",
+    "organized_path": "screenshots/dashboard-demo/07apiservices.png",
     "sha256": "281de7c5a1dc11fb2eee950224b89c0a16e648d7faefb37744809118b90fb55c",
     "category": "dashboard-demo",
     "review_note": "Visible demo banner; three fixture services do not mean three deployed business APIs.",
@@ -193,7 +193,7 @@
   },
   {
     "original_path": "project/07wso2-apioverview.png",
-    "organized_path": "project/screenshots/historical-reference/07wso2-apioverview.png",
+    "organized_path": "screenshots/historical-reference/07wso2-apioverview.png",
     "sha256": "a5c02f9f65c76c43e1bb3c495023915e662ebf6665db18a1746c36fc5ae1ca02",
     "category": "historical-reference",
     "review_note": "Safe but omit: pre-creation OpenAPI form, not a published API overview.",
@@ -201,7 +201,7 @@
   },
   {
     "original_path": "project/08wso2backendendpoint.png",
-    "organized_path": "project/screenshots/historical-reference/08wso2backendendpoint.png",
+    "organized_path": "screenshots/historical-reference/08wso2backendendpoint.png",
     "sha256": "d437a36522727aa544cc2e0ca69af78ed09c62e7c0cfec2205ff927e8e025966",
     "category": "historical-reference",
     "review_note": "Safe but omit: CREATED-state overview; filename does not prove a deployed endpoint.",
@@ -209,7 +209,7 @@
   },
   {
     "original_path": "project/09wso2gatewaydeployment.png",
-    "organized_path": "project/screenshots/wso2-and-api/09wso2gatewaydeployment.png",
+    "organized_path": "screenshots/wso2-and-api/09wso2gatewaydeployment.png",
     "sha256": "67fe62cb74c580f7dc2ce853ddd62da2b42aad007191bee125fb7b2a6056eb12",
     "category": "wso2-and-api",
     "review_note": "Safe lifecycle PUBLISHED screen; not gateway revision-deployment proof.",
@@ -217,7 +217,7 @@
   },
   {
     "original_path": "project/10wso2developerportal.png",
-    "organized_path": "project/screenshots/wso2-and-api/10wso2developerportal.png",
+    "organized_path": "screenshots/wso2-and-api/10wso2developerportal.png",
     "sha256": "3f30c39caac7ca26f6b898b10fc1541cd17594a1c6ea365157f474208cbabaf9",
     "category": "wso2-and-api",
     "review_note": "Safe published catalog entry; no keys/token details visible.",
@@ -225,7 +225,7 @@
   },
   {
     "original_path": "project/environment-versions.png",
-    "organized_path": "project/screenshots/private-review/environment-versions.png",
+    "organized_path": "screenshots/private-review/environment-versions.png",
     "sha256": "57720fbb4ce86128e12061766dff1b20ea452e37207c9048c70ab9fdc8e70ea6",
     "category": "private-review",
     "review_note": "Safe but omit: terminal versions are historical, not this test environment; no personal username shown.",
@@ -233,7 +233,7 @@
   },
   {
     "original_path": "project/finalblog03aratelimitpolicy.png",
-    "organized_path": "project/screenshots/wso2-and-api/finalblog03aratelimitpolicy.png",
+    "organized_path": "screenshots/wso2-and-api/finalblog03aratelimitpolicy.png",
     "sha256": "2bc426c1ba0d33b52b531ef627d2ceae66f23fcc4307c80450eea8760e55ede9",
     "category": "wso2-and-api",
     "review_note": "Safe dedicated application overview showing configured 10PerMin policy and approved state; not a measured 429 result.",
@@ -241,7 +241,7 @@
   },
   {
     "original_path": "project/WSO2Dockerimage.png",
-    "organized_path": "project/screenshots/private-review/WSO2Dockerimage.png",
+    "organized_path": "screenshots/private-review/WSO2Dockerimage.png",
     "sha256": "f9c2492a7ee525df068e21a82801b1960d1ab306d4d67bef2fc8f99b503cfdcb",
     "category": "private-review",
     "review_note": "Exclude: personal workspace path; pull completion does not establish service readiness.",
