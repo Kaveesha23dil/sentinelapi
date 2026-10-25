@@ -39,24 +39,35 @@ See the [controlled runtime validation](docs/detection-runtime-repair.md), [rele
 
 ## Project Preview
 
-![SentinelAPI overview with DEMO DATA banner and illustrative traffic metrics](screenshots/final-blog/07-dashboard-overview-demo.png)
+![SentinelAPI dashboard overview with explicit demo-fixture banner](screenshots/final-blog/07-dashboard-overview-demo.png)
 
-**Dashboard — demo fixtures.** Actual React interface; displayed counts and alerts are illustrative. Authenticated local rendering was verified separately.
+*SentinelAPI monitoring dashboard — application demonstration using illustrative fixture data.*
 
-<details>
-<summary>Explore the supporting gateway and alert evidence</summary>
+### WSO2 API Gateway Integration
 
-<img src="screenshots/final-blog/05-alert-evidence-details.png" alt="Persisted error-rate alert joined to sanitized gateway events" width="800">
+<img src="screenshots/final-blog/02-wso2-publisher.png" alt="Published DemoCommerceAPI with OAuth2 settings in WSO2 Publisher" width="800">
 
-**Controlled local alert evidence.** This genuine query displays 12 rows; independent database/API checks confirmed 16 total links.
+DemoCommerceAPI publication and OAuth 2.0 configuration in WSO2 API Manager. Actual gateway routing and security behavior are established by the verification reports; this configuration screen alone does not prove execution.
 
-<img src="screenshots/final-blog/02-wso2-publisher.png" alt="WSO2 Publisher showing published DemoCommerceAPI with OAuth2 configuration" width="800">
+### Gateway Security Verification
 
-**WSO2 publication and security configuration.** The lifecycle screen shows publication and OAuth2 settings; executed gateway behavior is documented in the verification reports.
+<img src="screenshots/final-blog/04-postgresql-gateway-events.png" alt="Sanitized PostgreSQL gateway events showing HTTP 200 and HTTP 429 responses" width="800">
 
-</details>
+**Controlled local verification:** persisted genuine WSO2 events include HTTP 200 and HTTP 429 responses. This is collected telemetry, not a response-only authentication screenshot or a quota-timing benchmark. Clean HTTP 200/401 response captures are still needed; existing token-bearing and personal-path captures remain excluded.
 
-All three images are unchanged, privacy-reviewed captures from the [evidence audit](docs/release-evidence-audit.md). Demo fixtures, controlled runtime observations, and configuration evidence are labeled separately.
+### Evidence-Backed Detection
+
+<img src="screenshots/final-blog/05-alert-evidence-details.png" alt="Genuine error-rate alert joined to sanitized WSO2 gateway evidence" width="800">
+
+Controlled local runtime validation: an API error-rate alert linked to genuine WSO2 gateway events. The displayed SQL result includes 12 evidence rows; independent verification confirmed 16 linked records.
+
+### Machine Learning Experiment
+
+<img src="infrastructure/ml/evaluation/confusion_matrix.png" alt="Synthetic Isolation Forest confusion matrix: 56 true negatives, 4 false positives, 66 false negatives, 54 true positives" width="600">
+
+Isolation Forest offline evaluation using controlled synthetic traffic windows. Results are experimental and do not establish production attack-detection accuracy. Live ML scoring remains unverified.
+
+Images are unchanged genuine application/configuration captures or a retained experiment chart. See the [evidence audit](docs/release-evidence-audit.md) for publication decisions and the [organized local collection](project/README.md) for original-file categories. Demo fixtures and controlled runtime measurements remain distinct.
 
 ## Key Features
 
