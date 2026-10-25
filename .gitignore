@@ -16,6 +16,9 @@ screenshots/private/
 # Unreviewed originals can contain tokens, raw client data or personal paths.
 # Publish only reviewed, byte-identical copies in screenshots/final-blog/.
 screenshots/*.png
+# Organized local originals include previously excluded sensitive evidence.
+# Publish reviewed canonical copies only; avoid duplicate screenshot collections.
+project/screenshots/
 
 .DS_Store
 .vscode/

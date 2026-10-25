@@ -1,0 +1,17 @@
+FROM node:26.7.0-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginxinc/nginx-unprivileged:1.28-alpine
+USER root
+RUN adduser -D -u 10002 sentinelapi && chown -R 10002:0 /etc/nginx/conf.d
+COPY deploy/nginx.choreo.conf.template /etc/nginx/templates/default.conf.template
+COPY --chmod=755 deploy/15-cloud-api-url.sh /docker-entrypoint.d/15-cloud-api-url.sh
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY deploy/config.production.js /usr/share/nginx/html/config.js
+ENV NGINX_ENVSUBST_FILTER=^SENTINEL_API_URL$
+USER 10002
+EXPOSE 8080

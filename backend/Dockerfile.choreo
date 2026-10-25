@@ -1,5 +1,10 @@
 FROM python:3.12.12-slim-bookworm
 
+# Refresh Debian security fixes even when the Python patch tag is unchanged.
+RUN apt-get update \
+    && apt-get upgrade -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

@@ -1,0 +1,9 @@
+schemaVersion: 1.2
+endpoints:
+  - name: dashboard
+    service:
+      basePath: /
+      port: 8080
+    type: REST
+    networkVisibilities:
+      - Public

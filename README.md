@@ -1,68 +1,141 @@
+<div align="center">
+
 # SentinelAPI
 
-An API security monitoring prototype combining **WSO2 API Manager 4.5.0**, sanitized gateway telemetry, evidence-linked detection, and a React investigation dashboard.
+### API Security Monitoring & Anomaly Detection Platform
 
-Authentication and rate limits answer whether a request may pass the gateway. Investigating unusual behavior also requires a trustworthy record of what happened. SentinelAPI explores that problem without putting its rule engine or experimental ML in the request path.
+**Turning WSO2 API gateway activity into evidence-backed security insights.**
 
-**Status:** portfolio research prototype, not production ready. A subsequent [controlled local runtime validation](docs/detection-runtime-repair.md) verified 24 fresh WSO2 requests through collection into a genuine error-rate alert with 16 evidence links and authenticated API retrieval. Full live ML/dashboard acceptance remains pending. Step 9 is preserved on an unmerged branch; the [final audit](docs/final-project-audit.md) and [documentation verification](docs/final-verification.md) retain their earlier source-baseline findings.
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![WSO2 API Manager](https://img.shields.io/badge/WSO2_API_Manager-4.5.0-FF7300)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-4169E1?logo=postgresql&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 
-## Project objectives
+[Read Technical Article](https://kaveesha-portfolio-khaki.vercel.app/blog/engineering-sentinelapi-api-security-monitoring) · [View Portfolio Case Study](https://kaveesha-portfolio-khaki.vercel.app/projects/sentinelapi) · [GitHub Source](https://github.com/Kaveesha23dil/sentinelapi)
 
-Demonstrate WSO2 API lifecycle and gateway enforcement, build a privacy-conscious telemetry pipeline with replay-safe identity, connect explainable observations to stored evidence, and evaluate anomaly detection without confusing unusual behavior with malicious intent. The dashboard makes live, unavailable and demo data explicit.
+[Overview](#overview) · [Features](#key-features) · [Architecture](#system-architecture) · [Screenshots](#project-preview) · [Technology Stack](#technology-stack) · [Getting Started](#getting-started) · [Testing](#testing--verification) · [Documentation](#documentation)
 
-The [portfolio release verification](docs/release-verification.md) records the newest executed checks and current runtime state; the [release checklist](docs/portfolio-release-checklist.md) lists remaining gates. No release, deployment badge, coverage percentage or published blog is claimed.
+</div>
 
-## Implemented features
+## Overview
 
-- FastAPI DemoCommerce: health, profile, orders and simulated payments; business data is in memory.
-- WSO2 OpenAPI, revision, OAuth application/subscription tooling and bounded security checks. Actual gateway route: `/democommerceapi/1.0.0`.
-- BASIC API Log parsing, route sanitization, durable spool/checkpoints and deterministic event deduplication.
-- PostgreSQL monitoring schema, reviewed Alembic migrations and scoped runtime roles.
-- Five tested rule strategies; **only error-rate detection has a live evidence adapter**. Other strategies remain disabled.
-- Experimental per-API Isolation Forest, finalized minute features, artifact digest checks and evidence-linked anomaly alerts.
-- Seven React views with explicit demo provenance, authenticated API clients, memory-only credentials, filters and incident workflows.
+SentinelAPI is an API monitoring and anomaly detection platform built around WSO2 API Manager. It combines gateway traffic collection, PostgreSQL persistence, rule-based detection, Isolation Forest experimentation, and a React dashboard to investigate unusual API behavior.
 
-## Architecture
+Gateway authentication and throttling control whether requests may proceed. Understanding unusual API behavior also requires a reliable record of what happened. SentinelAPI collects sanitized gateway logs, evaluates stored events, and links alerts to supporting evidence so an investigator can inspect the reason for a signal.
+
+**Status:** portfolio/research prototype with verified local gateway ingestion, error-rate alerts, and authenticated dashboard integration. Monitoring runs independently of API requests. Live ML acceptance and public cloud deployment remain unverified.
+
+## Engineering Highlights
+
+- **WSO2 Gateway Security:** OAuth 2.0 and application throttling exercised with actual HTTP **200, 401, and 429** responses; not a quota-timing benchmark.
+- **Real Gateway Telemetry:** **99 genuine gateway events** persisted at the documented local verification point: 75 preserved records plus 24 controlled requests. Historical count, not a live metric.
+- **Evidence-Backed Detection:** one persisted error-rate alert with **16 linked gateway evidence records** from controlled testing, not a confirmed cyberattack.
+- **ML Experimentation:** Isolation Forest evaluated on **180 held-out synthetic windows** after 360 training minutes. Offline experiment, not production attack-detection performance.
+
+See the [controlled runtime validation](docs/detection-runtime-repair.md), [release verification](docs/release-verification.md), and subsequent [authenticated dashboard verification](docs/dashboard-backend-auth.md).
+
+## Project Preview
+
+![SentinelAPI dashboard overview with explicit demo-fixture banner](screenshots/final-blog/07-dashboard-overview-demo.png)
+
+*SentinelAPI monitoring dashboard — application demonstration using illustrative fixture data.*
+
+### WSO2 API Gateway Integration
+
+<img src="screenshots/final-blog/02-wso2-publisher.png" alt="Published DemoCommerceAPI with OAuth2 settings in WSO2 Publisher" width="800">
+
+DemoCommerceAPI publication and OAuth 2.0 configuration in WSO2 API Manager. Actual gateway routing and security behavior are established by the verification reports; this configuration screen alone does not prove execution.
+
+### Gateway Security Verification
+
+<img src="screenshots/final-blog/04-postgresql-gateway-events.png" alt="Sanitized PostgreSQL gateway events showing HTTP 200 and HTTP 429 responses" width="800">
+
+**Controlled local verification:** persisted genuine WSO2 events include HTTP 200 and HTTP 429 responses. This is collected telemetry, not a response-only authentication screenshot or a quota-timing benchmark. Clean HTTP 200/401 response captures are still needed; existing token-bearing and personal-path captures remain excluded.
+
+### Evidence-Backed Detection
+
+<img src="screenshots/final-blog/05-alert-evidence-details.png" alt="Genuine error-rate alert joined to sanitized WSO2 gateway evidence" width="800">
+
+Controlled local runtime validation: an API error-rate alert linked to genuine WSO2 gateway events. The displayed SQL result includes 12 evidence rows; independent verification confirmed 16 linked records.
+
+### Machine Learning Experiment
+
+<img src="infrastructure/ml/evaluation/confusion_matrix.png" alt="Synthetic Isolation Forest confusion matrix: 56 true negatives, 4 false positives, 66 false negatives, 54 true positives" width="600">
+
+Isolation Forest offline evaluation using controlled synthetic traffic windows. Results are experimental and do not establish production attack-detection accuracy. Live ML scoring remains unverified.
+
+Images are unchanged genuine application/configuration captures or a retained experiment chart. See the [evidence audit](docs/release-evidence-audit.md) for publication decisions and the [organized local collection](project/README.md) for original-file categories. Demo fixtures and controlled runtime measurements remain distinct.
+
+## Key Features
+
+### API Gateway Security
+
+WSO2 publication, revisions, subscriptions, OAuth 2.0 authentication, application-level throttling, and request/response observations against the FastAPI DemoCommerce service.
+
+### Telemetry Collection
+
+WSO2 BASIC log parsing through a Python host bridge, sanitized spool, and collector into PostgreSQL. Durable checkpoints and deterministic event IDs support replay-safe collection; stored events omit bodies, headers, and raw addresses.
+
+### Security Detection
+
+Sliding-window error-rate evaluation, persistent alerts, incident deduplication, linked evidence, and reader/analyst/admin API capabilities. Of five tested strategies, **only error-rate detection has a verified live evidence adapter**; the other four remain disabled.
+
+### Machine Learning
+
+Per-API Isolation Forest scoring, finalized traffic-window features, model/artifact checks, and controlled evaluation with comparison charts. Optional worker inference is implemented; **live scoring acceptance remains pending**.
+
+### Monitoring Dashboard
+
+React/TypeScript views for **Overview, API traffic, Threat alerts, Detection rules, ML monitoring, and API services**, with incident details and authenticated FastAPI clients. Same-origin proxies and in-memory credentials support local live investigation. Demo mode is explicit and never substitutes for failed live requests.
+
+## System Architecture
 
 ```mermaid
 flowchart LR
-    Client -->|HTTPS and OAuth| Gateway[WSO2 Gateway]
-    Gateway -->|Docker DNS HTTP| Demo[DemoCommerce FastAPI]
-    Gateway --> Logs[BASIC API Logs]
-    Logs --> Bridge[Explicit host bridge]
-    Bridge --> Spool[Sanitized named spool]
-    Spool --> Collector
+    Client[API client] --> Gateway[WSO2 API Manager]
+    Gateway --> Demo[DemoCommerce FastAPI]
+    Gateway --> Logs[WSO2 BASIC gateway logs]
+    Logs --> Bridge[Python host log bridge]
+    Bridge --> Spool[Sanitized spool]
+    Spool --> Collector[Python collector]
     Collector --> DB[(PostgreSQL)]
-    DB --> Rules[Error-rate worker]
-    DB -.-> ML[Optional ML worker - live scoring pending]
-    Rules --> Alerts[Alerts and evidence in PostgreSQL]
-    ML -.-> Alerts
-    DB --> APIs[Authenticated monitoring and security APIs]
-    Alerts --> APIs
-    APIs -.-> UI[React dashboard - live acceptance pending]
+    DB --> Rules[Verified error-rate worker]
+    Rules --> Evidence[(Alerts and linked evidence)]
+    DB -.-> ML[Experimental Isolation Forest]
+    ML -.-> Evidence
+    DB --> API[Authenticated monitoring and security API]
+    Evidence --> API
+    API --> Dashboard[React dashboard - local live verified]
+    Fixtures[Explicit demo fixtures] -.-> Dashboard
 ```
 
-Solid arrows describe implemented paths supported by retained controlled runtime evidence. Dashed ML/UI arrows are implemented source integrations awaiting live acceptance; current checks found no configured model artifact and zero ML windows. WSO2 emits the gateway logs; DemoCommerce is not the log producer. WSO2 handles lifecycle, subscription authorization, OAuth enforcement and configurable throttling; SentinelAPI observes out of band and does not automatically block requests. [Detailed architecture](docs/final-architecture.md).
+The top path handles API requests; WSO2 enforces authentication and throttling before forwarding to DemoCommerce. The observation path reads gateway logs and analyzes persisted events independently. Rules write evidence-linked alerts back to PostgreSQL. Dashed ML connections indicate implemented experimental integration awaiting live acceptance; fixture data is an explicit alternative dashboard mode.
 
-## Application evidence
+WSO2, the host bridge, and the detection worker are independently managed processes. See [detailed architecture](docs/final-architecture.md) and the subsequent [dashboard integration update](docs/dashboard-backend-auth.md).
 
-**Actual React application, demo fixtures only.** Counts, services and alerts are illustrative, not live gateway measurements.
+## Technology Stack
 
-![Actual React overview with explicit demo-fixture banner](screenshots/final-blog/07-dashboard-overview-demo.png)
+| Layer | Technology |
+| --- | --- |
+| API Management | WSO2 API Manager 4.5.0 |
+| Backend | Python 3.12, FastAPI |
+| Data Storage | PostgreSQL 17 (Compose image: 17.11) |
+| Database Management | SQLAlchemy 2, Alembic, psycopg 3 |
+| Collection | Python, Docker-based log transport |
+| Detection | Python, sliding-window rules |
+| Machine Learning | scikit-learn Isolation Forest, NumPy, pandas |
+| Frontend | React 19, TypeScript, Vite |
+| Infrastructure | Docker, Docker Compose |
+| Testing | Pytest, Vitest, Playwright |
 
-**Genuine controlled runtime alert evidence.** This joined SQL view shows 12 rows of the actual alert's evidence; the independent database/API count is 16. It is a controlled local validation, not a real-world attack.
+## Getting Started
 
-![Stored error-rate alert joined to actual sanitized gateway error events](screenshots/final-blog/05-alert-evidence-details.png)
+### Option A — Explore the dashboard
 
-The [release evidence audit](docs/release-evidence-audit.md) reviews all 31 supplied captures and maps 13 byte-identical safe copies into final-blog. Token-bearing, raw-address and personal-path images remain excluded locally. A genuine Screenshot 06 was supplied, but needs a clean recapture because its prompt exposes a personal workspace path; the safe joined SQL view above is already available. Dashboard captures remain fixtures.
-
-## Technology
-
-WSO2 API Manager 4.5.0 · Python 3.12 · FastAPI · SQLAlchemy 2 · Alembic · PostgreSQL 17 · Docker Compose · scikit-learn Isolation Forest · React · TypeScript · Vite · Pytest · Vitest · Playwright.
-
-## Try the dashboard
-
-Prerequisites: Git, compatible Node/npm (Node 26.7.0/npm 11.19.0 were used in earlier verification), and the repository lockfile.
+Requires Git and compatible Node.js/npm; the frontend Dockerfile uses Node 26.7.0. Install dependencies from the repository lockfile:
 
 ```powershell
 cd frontend
@@ -70,104 +143,93 @@ npm.cmd ci
 npm.cmd run dev
 ```
 
-Open **http://127.0.0.1:5173** and select **Explore demo**. Demo is read-only and never substitutes for failed live requests. For real data, use **Connect backend** with private monitoring/security credentials. Development proxies target loopback 8010/8020; see `frontend/.env.example`. Never put tokens in Vite variables or URLs.
+Open [http://127.0.0.1:5173](http://127.0.0.1:5173) and select **Explore demo**. This read-only mode uses fixtures and requires neither WSO2 nor PostgreSQL. The development configuration enables demo entry; production configuration disables it.
 
-## Run the backend and WSO2 demo
+To inspect genuine data, select **Connect backend** and privately supply the required monitoring and security credentials. Both development proxies currently target the combined application on loopback port 8010. Never put credentials in URLs, public config.js, or Vite variables.
 
-Prerequisites: Python 3.12, Docker Desktop/Compose, the existing WSO2 installation, trusted local WSO2 certificate and private credentials. WSO2 is separately managed: Compose does **not** provision or restore it.
+### Option B — Run the full local integration
 
-1. Follow the [safe deployment runbook](docs/final-deployment.md). Preserve containers, database data, volumes and WSO2 configuration.
-2. Copy `.env.example` to `.env` only if `.env` does not exist. Replace applicable placeholders with distinct private secrets. Optional ML requires an independently approved artifact.
-3. Inspect containers/network. Use selected-service `up --no-recreate`; this can preserve stale deployments as well as working ones.
-4. Build persistence tooling, back up externally, apply `alembic upgrade head`, check drift and provision scoped roles before runtime services.
-5. Inspect/import the real OpenAPI, set backend `http://democommerce:8000`, secure all operations, deploy a revision, publish and subscribe. [WSO2 configuration and context caveat](docs/wso2-api-integration.md).
-6. Start collector/monitoring, the explicit host bridge, detector/security API, then frontend. ML is an opt-in overlay.
+Read the [safe local runtime guide](docs/final-deployment.md) before starting services, then apply the later [dashboard authentication and reader-grant instructions](docs/dashboard-backend-auth.md).
 
-Core startup commands, after the runbook's backup, network, credential and migration prerequisites:
+Prerequisites include Python 3.12, Docker Desktop/Compose, an independently managed WSO2 API Manager 4.5.0 runtime, trusted local TLS certificates, private credentials, and PostgreSQL configuration.
 
-```powershell
-docker compose -f compose.yaml -f compose.step6.yaml config --quiet
-docker compose -f compose.yaml -f compose.step6.yaml build monitoring detector persistence democommerce
-docker compose up -d --no-recreate postgres
-docker compose --profile tools run --rm --no-deps persistence alembic upgrade head
-docker compose --profile tools run --rm --no-deps persistence python -m sentinelapi.detection.provision
-docker compose up -d --no-recreate democommerce collector monitoring
-docker compose -f compose.yaml -f compose.step6.yaml up -d --no-recreate --no-deps detector security-api
-```
+1. Inspect existing containers, networks, database volumes, and configuration. Copy `.env.example` only if `.env` does not already exist; preserve existing secrets and data.
+2. Back up the database, apply reviewed Alembic migrations with the owner/tooling role, and provision scoped runtime roles before starting database-dependent services.
+3. Configure DemoCommerce publication, backend routing, OAuth application/subscription, and gateway revisions in WSO2. The actual gateway context is `/democommerceapi/1.0.0`.
+4. Start the collector and monitoring service, the explicit host log bridge, then the independent detection worker. Apply the read-only dashboard grants and configure its security credential as described in the later repair guide.
+5. Start Vite separately or use the optional Nginx dashboard overlay. Enable ML only with a trusted, approved, API-scoped model artifact and the optional ML overlay.
 
-Provision collector/monitoring roles using the separate owner-run procedure in the runbook before their first start; that procedure can rotate existing telemetry passwords and must use the intended credentials. Detection provisioning preserves existing passwords unless explicit rotation is requested. `--no-recreate` preserves existing containers and can preserve stale code: review any update separately. WSO2 is not created by these commands and no complete clean-machine WSO2 restore is automated.
+The runbooks retain migration/provisioning commands, service ordering, safe stops, and authorized traffic checks. **Do not reset databases, delete volumes, or recreate persistent containers merely to try the project.** `--no-recreate` preserves existing containers but can also preserve stale code. A listening port is not readiness evidence. Compose does not provision WSO2 or launch the host bridge.
 
-**Separate host process:** Compose does not launch the WSO2 log bridge. With the established Python environment, run it in one host terminal:
+## Testing & Verification
 
-```powershell
-$env:PYTHONPATH='backend;collector;scripts'
-.\.venv-step6\Scripts\python.exe scripts/bridge_api_logs.py --follow
-```
+The following are retained results at documented verification points, **not a fresh full-suite run for this README update**. Groups overlap and must not be summed into a single test count.
 
-The detector is another process (`python -m sentinelapi.detection.worker`) in its own Step 6 container, not a Uvicorn background task. Prefer Compose: root-directory host imports need `PYTHONPATH=backend`, scoped credentials and actual DB reachability. Do not expose the database or start duplicate workers just to test imports. ML runs in that worker only when an approved artifact is configured through the Step 7 overlay. Frontend Vite is a separate `npm.cmd run dev` terminal; Step 8 optionally supplies Nginx instead. See the runbook for safe stops without volume deletion.
+| Verification scope | Recorded result | Evidence |
+| --- | --- | --- |
+| Backend/tools/DemoCommerce host suite | 155 passed + four passing subtests | [Release verification](docs/release-verification.md) |
+| Guarded PostgreSQL persistence/detection/migration/dashboard SQL | 21 passed | [Release verification](docs/release-verification.md) |
+| Linux collector and DB-backed monitoring | 31 passed | [Release verification](docs/release-verification.md) |
+| Direct Windows collector fixtures | 18 passed, **2 failed** (`os.O_DIRECTORY`) | [Release verification](docs/release-verification.md) |
+| Frontend unit / Chromium fixture and mocked workflows | **37 passed / 7 passed** in later dashboard repair | [Dashboard verification](docs/dashboard-backend-auth.md) |
+| Frontend lint / typecheck / production build | Passed in dashboard repair | [Dashboard verification](docs/dashboard-backend-auth.md) |
+| Focused backend suite in updated Choreo image | 106 passed; fresh image build passed | [Security build repair](docs/choreo-security-build.md) |
 
-The runbook includes actual commands, migrations, safe stops, ML evaluation and bounded authorized traffic. Loopback ports: DemoCommerce **8000**, monitoring **8010**, security/ML **8020**, Vite **5173**, optional Nginx dashboard **8080**, Publisher **https://localhost:9443/publisher**, gateway **https://localhost:8243/democommerceapi/1.0.0**. PostgreSQL has no host port. A listening port is not readiness evidence.
+The later dashboard repair supersedes the older 36-test frontend snapshot and separately verifies six authenticated sections through Vite and Nginx. These are historical local results, not a claim that services are running now.
 
-## Tests and measured results
+The 106-test cloud-image suite is narrower than the full backend suite. Broader image-only testing encountered missing ML dependencies, unconfigured database tests, and an absent root Compose fixture; details remain in the [cloud verification report](docs/choreo-deployment.md).
+
+Useful frontend checks, from `frontend/`:
 
 ```powershell
-# Repository root; environment installation is in the runbook.
-$env:PYTHONPATH='backend;scripts;collector'
-.\.venv-step6\Scripts\python.exe -m pytest backend/tests scripts/tests demo-services/democommerce/tests --ignore=backend/tests/test_postgres.py --ignore=backend/tests/test_detection_postgres.py --ignore=backend/tests/test_ml_postgres.py --ignore=backend/tests/test_dashboard_postgres.py -q
-# frontend directory
+npm.cmd test
 npm.cmd run lint
 npm.cmd run typecheck
-npm.cmd test
 npm.cmd run build
-$env:SENTINEL_SCREENSHOT_DIR='../.runtime/portfolio-release/browser-captures'
-npm.cmd run test:browser
 ```
 
-Newest executed release checks:
+For full commands, platform-specific results, guarded test-database setup, and browser capture handling, use [release verification](docs/release-verification.md) and [dashboard verification](docs/dashboard-backend-auth.md). Never point destructive database tests at the project database.
 
-| Check | Actual result |
-|---|---|
-| Backend/tool/DemoCommerce host suite | 155 passed + four passing subtests |
-| Guarded PostgreSQL persistence/detection/migration/dashboard SQL | 21 passed |
-| Linux collector and DB-backed monitoring | 31 passed |
-| Direct Windows collector fixtures | 18 passed, **2 failed** (`os.O_DIRECTORY`) |
-| Frontend unit / Chromium | 36 passed / 7 passed |
-| Lint / typecheck / production build | Passed |
+## ML Evaluation
 
-All executed groups had zero skips/errors; the Windows group has the two stated failures. Some migration/collector cases overlap across commands/platforms: do not sum them as a single unique test count. Raw XML/traces remain ignored; [verification commands and sanitized results](docs/release-verification.md) retain the distinction between real DB tests, fixtures/mocks and live observations. The direct Windows transport fix remains on unmerged Step 9; the deployed Windows-host bridge uses a Linux transport helper and is working.
+Isolation Forest provides an unsupervised way to explore unusual API behavior without assuming labeled attacks are available. Finalized 60-second windows contain request count, 4xx/5xx ratios, unique endpoint count, GET/POST ratios, and status-code diversity. Rule detection applies an explicit error threshold; model scoring identifies departures from learned behavior. Neither establishes malicious intent.
 
-Current read-only runtime checks found PostgreSQL revision `b7d000000001`, **99 gateway events**, one medium/open risk-50 alert and **16 evidence links**, with monitoring/collector healthy. The [earlier controlled repair](docs/detection-runtime-repair.md) correlated all 24 generated requests and verified preservation of the original 75 events; this release audit did not generate a new workload. Nine retained events have HTTP 429. A configured 10PerMin policy and retained 429 observations are not a benchmark or proof of exact quota-window timing.
-
-Historical Step 5 correlated **6 gateway responses with 6 database and monitoring records**, including a rejected request, retaining the count after replay. [Live source report](infrastructure/telemetry/e2e-verification.json).
-
-Controlled synthetic ML evaluation, reproduced during the release audit: 360 training minutes, 180 held-out minutes (60 normal, 120 scenarios).
+**Offline synthetic evaluation:** 360 training minutes and 180 held-out minutes (60 normal, 120 controlled-scenario windows), reproduced in the release audit.
 
 | Detector | Precision | Recall | F1 | False-positive rate |
-|---|---:|---:|---:|---:|
+| --- | ---: | ---: | ---: | ---: |
 | Isolation Forest | 0.931034 | 0.450000 | 0.606742 | 0.066667 |
 | Configured error-rate rule | 1.000000 | 0.200000 | 0.333333 | 0.000000 |
 
-These are **synthetic results**, not production attack accuracy. Rule history is 300 seconds; ML windows are 60 seconds. No throughput, live latency or coverage claim is supported. An anomaly is an investigation signal, not confirmed malicious activity. [Evaluation and reproduction](docs/ml-evaluation.md).
+These measure agreement with synthetic labels, **not real-world security accuracy**. Both detectors miss scenarios. The rule uses 300 seconds of history versus 60-second ML windows, so this comparison does not establish general superiority. No approved live artifact or accepted live scoring is demonstrated by these metrics. See [evaluation design and reproduction](docs/ml-evaluation.md).
 
-## Security, limitations and future work
+## Current Limitations
 
-Secrets belong in ignored configuration or process memory. Stored events omit bodies, headers and raw addresses; source WSO2 logs still need protection. Monitoring has a separate token; security APIs enforce reader/analyst/admin capabilities. Model hashes verify bytes, not publisher trust; joblib artifacts require a trusted operator.
+- Research prototype: production identity, retention, backup restoration, and hardening remain work in progress. The local demo backend can bypass the gateway.
+- BASIC telemetry lacks trusted end-user identity and measured latency; four detection strategies await suitable evidence adapters.
+- ML results are offline and synthetic; live scoring acceptance is pending.
+- Collection depends on the explicit host log bridge. Two direct Windows collector fixtures still fail on `os.O_DIRECTORY`; the portability fix remains on an unmerged branch.
+- Public cloud deployment and platform scan acceptance are unverified. Previously exposed database credentials require coordinated rotation before deployment.
 
-Outstanding work: backend isolation (loopback 8000 bypasses the gateway), dedicated low-quota acceptance beyond retained 429 observations, the `/democommerce` context decision, live ML/dashboard acceptance, dependency advisory review, backups/retention and production identity/TLS. Monitoring/security runtime drift and controlled rule-alert generation were addressed in the focused repair; health still depends on the explicit bridge. Windows collector portability is fixed only on unmerged Step 9. No public deployment is claimed.
+See the [release checklist](docs/portfolio-release-checklist.md) and [technical audit](docs/final-project-audit.md) for remaining gates. Historical reports retain their original baselines.
 
-## Development workflow
+## Documentation
 
-Inspect status and existing implementation first, work on a focused branch and preserve user changes. Keep schema tests in guarded `sentinelapi_test_*` databases; never reset project data for a test. Run relevant checks, retain actual failures, review staged secrets/evidence and commit with a descriptive message. Never commit `.env`, dumps, logs, tokens or runtime checkpoints. Raw root-level screenshots are ignored; stage only explicitly reviewed copies. Push, PR creation and merge require approval. No CI success or license choice is invented for this release.
+| Document | Purpose |
+| --- | --- |
+| [System Architecture](docs/final-architecture.md) | Component design and data flow |
+| [Local Setup Guide](docs/final-deployment.md) | Safe service startup, migrations, and reproduction |
+| [WSO2 Integration](docs/wso2-api-integration.md) | API publication, gateway routing, and security |
+| [Detection Documentation](docs/threat-detection-architecture.md) | Rule-based analysis and evidence processing |
+| [ML Evaluation](docs/ml-evaluation.md) | Isolation Forest experiment and limitations |
+| [Verification Report](docs/release-verification.md) | Retained tests and genuine runtime observations |
+| [Dashboard Verification](docs/dashboard-backend-auth.md) | Later authenticated local integration results |
+| [Evidence Audit](docs/release-evidence-audit.md) | Screenshot provenance and privacy review |
+| [Technical Article](https://kaveesha-portfolio-khaki.vercel.app/blog/engineering-sentinelapi-api-security-monitoring) | Published engineering walkthrough |
+| [Portfolio Case Study](https://kaveesha-portfolio-khaki.vercel.app/projects/sentinelapi) | Project overview and engineering outcomes |
 
-## Engineering notes and portfolio
+## What I Learned
 
-- [Audit](docs/final-project-audit.md) · [Safe deployment](docs/final-deployment.md) · [Architecture](docs/final-architecture.md)
-- [Verification](docs/final-verification.md) · [Evidence inventory](docs/final-evidence-inventory.md)
-- [Technical blog draft — unpublished](docs/sentinelapi-technical-blog.md)
-- [Current release verification](docs/release-verification.md) · [Evidence/privacy audit](docs/release-evidence-audit.md) · [Release checklist and next Git commands](docs/portfolio-release-checklist.md)
-- [Demo video plan — not recorded](docs/demo-video-script.md)
-- [Project summary](docs/portfolio/project-summary.md) · [Interview guide](docs/portfolio/interview-preparation.md)
-- [Development journal](docs/development-journal.md) · [Release/PR plan](docs/final-release-plan.md)
-- [Finalization report and remaining release gates](docs/finalization-report.md)
+I learned to connect API publication, OAuth 2.0, subscriptions, and throttling in WSO2 with the separate work of observing API behavior. Building the collection pipeline taught me to treat sanitization, deduplication, checkpoints, and database migrations as correctness concerns. Linking alerts to stored events made detection explainable; evaluating Isolation Forest taught me to distinguish synthetic results from deployment evidence. Integrating the dashboard required debugging credentials, database grants, proxies, and health across independent services.
 
-Published blog URL: pending. Repository: [SentinelAPI on GitHub](https://github.com/Kaveesha23dil/sentinelapi).
+**[Read the Technical Article](https://kaveesha-portfolio-khaki.vercel.app/blog/engineering-sentinelapi-api-security-monitoring)** · **[View the Portfolio Case Study](https://kaveesha-portfolio-khaki.vercel.app/projects/sentinelapi)**
